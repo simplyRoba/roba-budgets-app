@@ -1,10 +1,7 @@
 ---
 name: Question
 about: Ask your question.
-title: ''
+title: ""
 labels: question
-assignees: ''
-
+assignees: ""
 ---
-
-
