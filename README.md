@@ -1,4 +1,19 @@
-# RobaBudgetsApp
+# [roba] Budgets App
+
+<!-- TODO Downloads from ghcr.io -->
+
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+![GitHub License](https://img.shields.io/github/license/simplyRoba/roba-budgets-app?link=https%3A%2F%2Fgithub.com%2FsimplyRoba%2Froba-budgets-app%2Fblob%2Fmain%2FLICENSE)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/simplyRoba/roba-budgets-app/run-tests.yaml?link=https%3A%2F%2Fgithub.com%2FsimplyRoba%2Froba-budgets-app%2Factions%2Fworkflows%2Frun-tests.yaml%3Fquery%3Dbranch%253Amain)
+[![GitHub release (with filter)](https://img.shields.io/github/v/release/simplyRoba/roba-budgets-app?link=https%3A%2F%2Fgithub.com%2FsimplyRoba%2Froba-budgets-app%2Freleases)](https://github.com/simplyRoba/roba-budgets-app/releases)
+[![GitHub issues](https://img.shields.io/github/issues/simplyRoba/roba-budgets-app?link=https%3A%2F%2Fgithub.com%2FsimplyRoba%2Froba-budgets-app%2Fissues)](https://github.com/simplyRoba/roba-budgets-app/issues)
+![GitHub Repo stars](https://img.shields.io/github/stars/simplyRoba/roba-budgets-app)
+
+The app is a budget management application built with Angular. It is part of the roba suite of applications.
+
+TODO link to roba suite docs
+
+## Generated stuff
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
 
