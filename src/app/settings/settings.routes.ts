@@ -1,8 +1,6 @@
-import { Routes } from "@angular/router";
-import {SettingsComponent} from "./settings.component";
+import { Routes } from '@angular/router';
+import { SettingsComponent } from './settings.component';
 
-const settingsRoutes: Routes = [
-  { path: '', component: SettingsComponent }
-];
+const settingsRoutes: Routes = [{ path: '', component: SettingsComponent }];
 
 export default settingsRoutes;
