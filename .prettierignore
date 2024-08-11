@@ -1,0 +1,15 @@
+# defaults
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+
+# angular
+**/.angular
+
+# IDEs and editors
+**/.idea
+**/.vscode
+
+# do not format changelog as it gets auto-generated
+CHANGELOG.md
