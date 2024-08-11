@@ -1,0 +1,32 @@
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "fix(deps): "
+    schedule:
+      interval: "daily"
+      time: "09:00"
+      timezone: "Europe/Berlin"
+    groups:
+      angular-dependencies:
+        patterns:
+          - "@angular*"
+      fontawsome-icons:
+        dependency-type: "production"
+        patterns:
+          - "@fortawesome/free-*-svg-icons"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "ci(deps): "
+    schedule:
+      interval: "daily"
+      time: "09:00"
+      timezone: "Europe/Berlin"
