@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { BudgetsComponent } from './budgets/budgets.component';
+import { OverviewComponent } from './overview.component';
 
-const overviewRoutes: Routes = [{ path: '', component: BudgetsComponent }];
+const overviewRoutes: Routes = [{ path: '', component: OverviewComponent }];
 
 export default overviewRoutes;
