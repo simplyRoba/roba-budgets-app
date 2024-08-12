@@ -1,4 +1,4 @@
-.lane-overview {
+.budget-overview {
   display: flex;
   min-height: 100vh;
 }
@@ -39,10 +39,9 @@
 .glas {
   background: rgba(255, 255, 255, 0.3);
   box-shadow: 0 5px 10px 0 rgba(31, 52, 135, 0.3);
-  backdrop-filter: blur( 5px );
-  -webkit-backdrop-filter: blur( 5px );
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: darkslateblue;
 }
-
