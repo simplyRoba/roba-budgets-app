@@ -99,6 +99,6 @@
     }
   },
   "cli": {
-    "schematicCollections": ["@angular-eslint/schematics", "@ngrx/schematics"]
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }
