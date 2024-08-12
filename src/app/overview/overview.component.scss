@@ -1,0 +1,40 @@
+.lane-overview {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.lanes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.lane {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  height: 100px;
+}
+
+.glas {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 16px 0 rgba(31, 52, 135, 0.3);
+  backdrop-filter: blur( 5px );
+  -webkit-backdrop-filter: blur( 5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  color: darkslateblue;
+}
+
