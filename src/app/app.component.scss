@@ -1,8 +1,10 @@
-.background-container {
-  height: 100dvh;
-}
 
 .background-mesh {
+  min-height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  background-attachment: fixed;
   background-image: radial-gradient(
       at 3% 99%,
       hsla(19, 82%, 64%, 0.2) 0px,

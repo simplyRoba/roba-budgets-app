@@ -1,13 +1,10 @@
 .lane-overview {
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
 }
 
 .lanes {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   flex-grow: 1;
 }
 
@@ -15,22 +12,33 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  justify-content: center;
+  overflow: auto;
+  // hide scrollbar
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.lane-scrolling-container {
+  max-height: 0;
 }
 
 .card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex-grow: 1;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin: 10px 20px;
   padding: 10px;
-  height: 100px;
+  min-height: 50px;
 }
 
 .glas {
-  background: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 16px 0 rgba(31, 52, 135, 0.3);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 5px 10px 0 rgba(31, 52, 135, 0.3);
   backdrop-filter: blur( 5px );
   -webkit-backdrop-filter: blur( 5px );
   border-radius: 10px;
