@@ -45,43 +45,6 @@
           </div>
         </div>
       </div>
-
-      @if (summary.budgets.length > 0) {
-        <div class="content">
-          @for (budget of summary.budgets; track budget.name) {
-            <hr />
-            <div class="columns is-mobile">
-              <div class="column is-half has-text-left">
-                {{ budget.name }}
-              </div>
-              <div class="column is-half has-text-right">
-                {{
-                  budget.totalSavedAmountInCents / 100
-                    | currency: "EUR" : "symbol" : "1.2-2"
-                }}
-              </div>
-            </div>
-            <div class="columns is-mobile">
-              <div class="column is-half has-text-left">Ausgaben</div>
-              <div class="column is-half has-text-right">
-                {{
-                  budget.totalExpensesInCents / -100
-                    | currency: "EUR" : "symbol" : "1.2-2"
-                }}
-              </div>
-            </div>
-            <div class="columns is-mobile">
-              <div class="column is-full has-text-right">
-                {{
-                  (budget.totalSavedAmountInCents -
-                    budget.totalExpensesInCents) /
-                    100 | currency: "EUR" : "symbol" : "1.2-2"
-                }}
-              </div>
-            </div>
-          }
-        </div>
-      }
     </div>
     <footer class="card-footer">
       <a href="#" class="is-primary card-footer-item">ICON Previous</a>

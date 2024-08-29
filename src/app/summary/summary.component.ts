@@ -30,7 +30,6 @@ export class SummaryComponent {
               totalIncomeInCents: 0,
               totalFixExpensesInCents: 0,
               totalFlexExpensesInCents: 0,
-              budgets: [],
             } satisfies Summary),
           ),
       ),
