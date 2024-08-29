@@ -1,0 +1,96 @@
+@if (summary$ | async; as summary) {
+  <div class="card">
+    <header class="card-header">
+      <p class="card-header-title is is-large">
+        Summary {{ summary.year }}/{{ summary.month }}
+      </p>
+    </header>
+    <div class="card-content">
+      <div class="content is-medium">
+        <div class="columns is-mobile">
+          <div class="column is-half has-text-left">Einkommen</div>
+          <div class="column is-half has-text-right">
+            {{
+              summary.totalIncomeInCents / 100
+                | currency: "EUR" : "symbol" : "1.2-2"
+            }}
+          </div>
+        </div>
+        <div class="columns is-mobile">
+          <div class="column is-half has-text-left">Fixkosten</div>
+          <div class="column is-half has-text-right">
+            {{
+              summary.totalFixExpensesInCents / -100
+                | currency: "EUR" : "symbol" : "1.2-2"
+            }}
+          </div>
+        </div>
+        <div class="columns is-mobile">
+          <div class="column is-half has-text-left">Flexkosten</div>
+          <div class="column is-half has-text-right">
+            {{
+              summary.totalFlexExpensesInCents / -100
+                | currency: "EUR" : "symbol" : "1.2-2"
+            }}
+          </div>
+        </div>
+        <div class="columns is-mobile">
+          <div class="column is-full has-text-right">
+            {{
+              (summary.totalIncomeInCents -
+                summary.totalFixExpensesInCents -
+                summary.totalFlexExpensesInCents) /
+                100 | currency: "EUR" : "symbol" : "1.2-2"
+            }}
+          </div>
+        </div>
+      </div>
+
+      @if (summary.budgets.length > 0) {
+        <div class="content">
+          @for (budget of summary.budgets; track budget.name) {
+            <hr />
+            <div class="columns is-mobile">
+              <div class="column is-half has-text-left">
+                {{ budget.name }}
+              </div>
+              <div class="column is-half has-text-right">
+                {{
+                  budget.totalSavedAmountInCents / 100
+                    | currency: "EUR" : "symbol" : "1.2-2"
+                }}
+              </div>
+            </div>
+            <div class="columns is-mobile">
+              <div class="column is-half has-text-left">Ausgaben</div>
+              <div class="column is-half has-text-right">
+                {{
+                  budget.totalExpensesInCents / -100
+                    | currency: "EUR" : "symbol" : "1.2-2"
+                }}
+              </div>
+            </div>
+            <div class="columns is-mobile">
+              <div class="column is-full has-text-right">
+                {{
+                  (budget.totalSavedAmountInCents -
+                    budget.totalExpensesInCents) /
+                    100 | currency: "EUR" : "symbol" : "1.2-2"
+                }}
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+    <footer class="card-footer">
+      <a href="#" class="is-primary card-footer-item">ICON Previous</a>
+      <a href="#" class="card-footer-item">
+        <span class="icon">
+          <i class="fas fa-add"></i>
+        </span>
+      </a>
+      <a href="#" class="card-footer-item">ICON Next</a>
+    </footer>
+  </div>
+}

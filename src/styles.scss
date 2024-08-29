@@ -1,9 +1,13 @@
-html,
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-flow: column;
-  flex: 1;
-  margin: 0;
-  padding: 0;
-}
+@charset "utf-8";
+@use "sass:color";
+
+$purple: #832065;
+$pink: #df1c9a;
+
+@use "../node_modules/bulma/sass" with (
+  $primary: $purple,
+  $dark: color.adjust($purple, $lightness: -10%),
+  $link: $pink
+);
+
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
