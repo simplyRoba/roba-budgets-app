@@ -1,14 +1,24 @@
 @if (summary$ | async; as summary) {
   <div class="card">
     <header class="card-header">
-      <p class="card-header-title is is-large">
+      <button class="card-header-icon">
+        <span class="icon">
+          <fa-icon [icon]="faChevronLeft"></fa-icon>
+        </span>
+      </button>
+      <p class="card-header-title is-large is-justify-content-center">
         {{ summary.year + "-" + summary.month | date: "yyyy MMMM" }}
       </p>
+      <button class="card-header-icon">
+        <span class="icon">
+          <fa-icon [icon]="faChevronRight"></fa-icon>
+        </span>
+      </button>
     </header>
     <div class="card-content">
       <div class="content is-medium">
         <div class="columns is-mobile">
-          <div class="column is-half has-text-left">Einkommen</div>
+          <div class="column is-half has-text-left has-text-weight-light">Einkommen</div>
           <div class="column is-half has-text-right">
             {{
               summary.totalIncomeInCents / 100
@@ -17,7 +27,7 @@
           </div>
         </div>
         <div class="columns is-mobile">
-          <div class="column is-half has-text-left">Fixkosten</div>
+          <div class="column is-half has-text-left has-text-weight-light">Fixkosten</div>
           <div class="column is-half has-text-right">
             {{
               summary.totalFixExpensesInCents / -100
@@ -26,7 +36,7 @@
           </div>
         </div>
         <div class="columns is-mobile">
-          <div class="column is-half has-text-left">Flexkosten</div>
+          <div class="column is-half has-text-left has-text-weight-light">Flexkosten</div>
           <div class="column is-half has-text-right">
             {{
               summary.totalFlexExpensesInCents / -100
@@ -35,7 +45,7 @@
           </div>
         </div>
         <div class="columns is-mobile">
-          <div class="column is-full has-text-right">
+          <div class="column is-full has-text-right has-text-weight-medium">
             {{
               (summary.totalIncomeInCents -
                 summary.totalFixExpensesInCents -
@@ -46,14 +56,5 @@
         </div>
       </div>
     </div>
-    <footer class="card-footer">
-      <a href="#" class="is-primary card-footer-item">ICON Previous</a>
-      <a href="#" class="card-footer-item">
-        <span class="icon">
-          <i class="fas fa-add"></i>
-        </span>
-      </a>
-      <a href="#" class="card-footer-item">ICON Next</a>
-    </footer>
   </div>
 }
