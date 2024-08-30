@@ -5,4 +5,3 @@ export interface Summary {
   totalFixExpensesInCents: number;
   totalFlexExpensesInCents: number;
 }
-

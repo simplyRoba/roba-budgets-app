@@ -3,12 +3,12 @@ import { BackendApiService } from '../service/backend-api.service';
 import { Observable, of, startWith, switchMap } from 'rxjs';
 import { Income } from '../shared/income.model';
 import { Summary } from '../shared/summary.model';
-import { AsyncPipe, CurrencyPipe } from '@angular/common';
+import { AsyncPipe, CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-summary',
   standalone: true,
-  imports: [AsyncPipe, CurrencyPipe],
+  imports: [AsyncPipe, CurrencyPipe, DatePipe],
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.scss',
 })

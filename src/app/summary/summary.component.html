@@ -2,7 +2,7 @@
   <div class="card">
     <header class="card-header">
       <p class="card-header-title is is-large">
-        Summary {{ summary.year }}/{{ summary.month }}
+        {{ summary.year + "-" + summary.month | date: "yyyy MMMM" }}
       </p>
     </header>
     <div class="card-content">
