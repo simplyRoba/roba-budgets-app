@@ -1,11 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { BackendApiService } from '../service/backend-api.service';
 import { Observable, of, startWith, switchMap } from 'rxjs';
-import { Income } from '../shared/income.model';
 import { Summary } from '../shared/summary.model';
 import { AsyncPipe, CurrencyPipe, DatePipe } from '@angular/common';
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import {faChevronLeft, faChevronRight, faHome, faPlus} from "@fortawesome/free-solid-svg-icons";
+import {faChevronLeft, faChevronRight, faPlus} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-summary',
@@ -38,8 +37,7 @@ export class SummaryComponent {
     );
   }
 
-  protected readonly faHome = faHome;
   protected readonly faChevronLeft = faChevronLeft;
-  protected readonly faPlus = faPlus;
   protected readonly faChevronRight = faChevronRight;
+  protected readonly faPlus = faPlus;
 }
