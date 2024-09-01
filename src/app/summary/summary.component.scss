@@ -1,0 +1,8 @@
+.card-header-title.is-large {
+  font-size: var(--bulma-size-large);
+}
+
+.column.is-result {
+  border-top: 1px solid var(--bulma-border-weak);
+  padding-bottom: calc(var(--bulma-column-gap) / 2);
+}

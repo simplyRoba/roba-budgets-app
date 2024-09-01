@@ -1,6 +1,6 @@
 {
-  "name": "roba-budgets-app",
-  "short_name": "roba-budgets-app",
+  "name": "[roba] Budgets",
+  "short_name": "Budgets",
   "theme_color": "#fd4db4",
   "background_color": "#fafafa",
   "display": "standalone",
