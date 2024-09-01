@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import {
   faGear,
-  faHome, faMoneyBill,
+  faHome,
+  faMoneyBill,
   faMoneyBillTransfer,
   faMoneyBillWave,
   faSackDollar,
-  faWallet
-} from "@fortawesome/free-solid-svg-icons";
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import {NgClass} from "@angular/common";
+  faWallet,
+} from '@fortawesome/free-solid-svg-icons';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-root',

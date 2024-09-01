@@ -20,14 +20,14 @@ import {
 export class SummaryComponent {
   private backendApiService = inject(BackendApiService);
 
-  selectedDate: Observable<Date> = of(new Date("2024-07"));
+  selectedDate: Observable<Date> = of(new Date('2024-07'));
   summary$: Observable<Summary>;
 
   constructor() {
     this.summary$ = this.selectedDate.pipe(
       switchMap((date) =>
         this.backendApiService
-          .loadSummary(date.getFullYear(), date.getMonth()+1) // JS's getMonth is zero indexed :(
+          .loadSummary(date.getFullYear(), date.getMonth() + 1) // JS's getMonth is zero indexed :(
           .pipe(
             startWith({
               month: 1, // TODO use skeleton from bulma
