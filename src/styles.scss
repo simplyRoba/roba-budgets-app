@@ -1,7 +1,7 @@
 @charset "utf-8";
 @use "sass:color";
 
-$purple: #b1218b;
+$purple: #d50ca2;
 
 @use "../node_modules/bulma/sass" with (
   $primary: $purple,
