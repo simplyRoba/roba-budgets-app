@@ -5,7 +5,7 @@ $purple: #b1218b;
 
 @use "../node_modules/bulma/sass" with (
   $primary: $purple,
-  $dark: color.adjust($purple, $lightness: -10%),
+  $dark: color.adjust($purple, $lightness: -10%)
 );
 
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,700");

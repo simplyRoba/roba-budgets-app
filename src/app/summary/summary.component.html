@@ -18,7 +18,9 @@
     <div class="card-content">
       <div class="content is-medium">
         <div class="columns is-mobile">
-          <div class="column is-half has-text-left has-text-weight-light">Einkommen</div>
+          <div class="column is-half has-text-left has-text-weight-light">
+            Einkommen
+          </div>
           <div class="column is-half has-text-right">
             {{
               summary.totalIncomeInCents / 100
@@ -27,7 +29,9 @@
           </div>
         </div>
         <div class="columns is-mobile">
-          <div class="column is-half has-text-left has-text-weight-light">Fixkosten</div>
+          <div class="column is-half has-text-left has-text-weight-light">
+            Fixkosten
+          </div>
           <div class="column is-half has-text-right">
             {{
               summary.totalFixExpensesInCents / -100
@@ -36,7 +40,9 @@
           </div>
         </div>
         <div class="columns is-mobile">
-          <div class="column is-half has-text-left has-text-weight-light">Flexkosten</div>
+          <div class="column is-half has-text-left has-text-weight-light">
+            Flexkosten
+          </div>
           <div class="column is-half has-text-right">
             {{
               summary.totalFlexExpensesInCents / -100
@@ -47,7 +53,9 @@
       </div>
       <div class="content is-medium">
         <div class="columns is-mobile">
-          <div class="column is-result is-full has-text-right has-text-weight-medium">
+          <div
+            class="column is-result is-full has-text-right has-text-weight-medium"
+          >
             {{
               (summary.totalIncomeInCents -
                 summary.totalFixExpensesInCents -

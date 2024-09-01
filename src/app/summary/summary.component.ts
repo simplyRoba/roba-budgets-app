@@ -3,8 +3,12 @@ import { BackendApiService } from '../service/backend-api.service';
 import { Observable, of, startWith, switchMap } from 'rxjs';
 import { Summary } from '../shared/summary.model';
 import { AsyncPipe, CurrencyPipe, DatePipe } from '@angular/common';
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import {faChevronLeft, faChevronRight, faPlus} from "@fortawesome/free-solid-svg-icons";
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import {
+  faChevronLeft,
+  faChevronRight,
+  faPlus,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-summary',
