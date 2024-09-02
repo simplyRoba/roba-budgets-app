@@ -9,34 +9,41 @@ import {
   faChevronRight,
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-summary',
   standalone: true,
-  imports: [AsyncPipe, CurrencyPipe, DatePipe, FaIconComponent],
+  imports: [AsyncPipe, CurrencyPipe, DatePipe, FaIconComponent, RouterLink],
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.scss',
 })
 export class SummaryComponent {
   private backendApiService = inject(BackendApiService);
+  private activatedRoute = inject(ActivatedRoute);
 
-  selectedDate: Observable<Date> = of(new Date('2024-07'));
+  selectedDate$: Observable<Date>;
   summary$: Observable<Summary>;
 
   constructor() {
-    this.summary$ = this.selectedDate.pipe(
+    this.selectedDate$ = this.activatedRoute.params.pipe(
+      switchMap((params) => {
+        if (params['year'] && params['month']) {
+          // (+) converts string to a number
+          return of(new Date(+params['year'], +params['month'] - 1));
+        } else {
+          return of(new Date());
+        }
+      }),
+    );
+
+    this.summary$ = this.selectedDate$.pipe(
       switchMap((date) =>
-        this.backendApiService
-          .loadSummary(date.getFullYear(), date.getMonth() + 1) // JS's getMonth is zero indexed :(
-          .pipe(
-            startWith({
-              month: 1, // TODO use skeleton from bulma
-              year: 2000,
-              totalIncomeInCents: 0,
-              totalFixExpensesInCents: 0,
-              totalFlexExpensesInCents: 0,
-            } satisfies Summary),
-          ),
+        // JS's getMonth is zero indexed :(
+        this.backendApiService.loadSummary(
+          date.getFullYear(),
+          date.getMonth() + 1,
+        ),
       ),
     );
   }
