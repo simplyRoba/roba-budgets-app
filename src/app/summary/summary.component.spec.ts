@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SummaryComponent } from './summary.component';
 import { BackendApiService } from '../service/backend-api.service';
 import { of } from 'rxjs';
+import {ActivatedRoute} from "@angular/router";
 
 describe('SummaryComponent', () => {
   let component: SummaryComponent;
@@ -27,6 +28,12 @@ describe('SummaryComponent', () => {
         {
           provide: BackendApiService,
           useValue: backendApiService,
+        },
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({}),
+          },
         },
       ],
     }).compileComponents();
