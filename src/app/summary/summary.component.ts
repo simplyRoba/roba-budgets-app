@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { BackendApiService } from '../service/backend-api.service';
-import { Observable, of, startWith, switchMap } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 import { Summary } from '../shared/summary.model';
 import { AsyncPipe, CurrencyPipe, DatePipe } from '@angular/common';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
