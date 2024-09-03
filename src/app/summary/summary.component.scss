@@ -1,5 +1,22 @@
+@use "bulma/sass/utilities/mixins";
+
+@include mixins.touch {
+  .summary-container {
+    margin-top: 40px;
+  }
+}
+
 .card-header-title.is-large {
   font-size: var(--bulma-size-large);
+}
+
+.card-header-icon {
+  :hover {
+    color: var(--bulma-primary);
+  }
+  :active {
+    color: var(--bulma-primary-bold);
+  }
 }
 
 .column.is-result {

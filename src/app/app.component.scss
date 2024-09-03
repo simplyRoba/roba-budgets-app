@@ -6,7 +6,6 @@
     justify-content: center;
   }
   .navbar {
-    background-color: var(--bulma-text-100);
     .navbar-item .icon {
       color: var(--bulma-text-00-invert);
     }
@@ -25,7 +24,8 @@
 }
 
 .background-mesh {
-  background-color: white;
+  background-color: var(--bulma-body-background-color);
+  //background-color: var(--bulma-background);
   background-image: radial-gradient(
       at 95% 10%,
       hsla(19, 82%, 64%, 0.34) 0px,
