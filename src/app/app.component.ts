@@ -20,9 +20,6 @@ import { NgClass } from '@angular/common';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  navMenuOpen = false;
-  protected readonly faHome = faHome;
-  protected readonly faSackDollar = faSackDollar;
   protected readonly faWallet = faWallet;
   protected readonly faMoneyBillTransfer = faMoneyBillTransfer;
   protected readonly faGear = faGear;

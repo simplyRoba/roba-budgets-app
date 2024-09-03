@@ -1,0 +1,53 @@
+<div class="income-container">
+  <div class="content">
+    @if (incomeList$ | async; as incomeList) {
+      @for (income of incomeList; track income.id) {
+        <div class="box">
+          <div class="columns is-mobile">
+            <div class="column is-half has-text-left has-text-weight-light">
+              {{ income.title }}
+            </div>
+            <div class="column is-half has-text-right">
+              {{ income.amountInCents / 100 | currency: "EUR" : "symbol" : "1.2-2" }}
+            </div>
+          </div>
+        </div>
+      }
+      @if (incomeList.length === 0) {
+        <div class="box">
+          <div class="columns is-mobile">
+            <div class="column is-full has-text-centered">
+              <span>Keine Einträge</span>
+            </div>
+          </div>
+        </div>
+      }
+    } @else {
+        <div class="box">
+          <div class="columns is-mobile">
+            <div class="column is-half has-text-left has-text-weight-light">
+              <span class="is-skeleton">Skeleton</span>
+            </div>
+            <div class="column is-half has-text-right">
+              <span class="is-skeleton">Skeleton</span>
+            </div>
+          </div>
+        </div>
+      }
+  </div>
+  <div class="columns is-mobile">
+    <div class="column is-one-fifth">
+      <button routerLink="/summary" class="button is-fullwidth">
+        <span class="icon"><fa-icon [icon]="faChevronLeft"></fa-icon></span>
+      </button>
+    </div>
+    <div class="column is-four-fifth">
+      <button routerLink="add" class="button is-primary is-outlined is-fullwidth">
+        <span class="icon">
+            <fa-icon [icon]="faPlus"></fa-icon>
+        </span>
+        <span>Add</span>
+      </button>
+    </div>
+  </div>
+</div>

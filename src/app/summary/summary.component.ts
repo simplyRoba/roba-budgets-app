@@ -29,7 +29,6 @@ export class SummaryComponent {
     this.selectedDate$ = this.activatedRoute.params.pipe(
       switchMap((params) => {
         if (params['year'] && params['month']) {
-          // (+) converts string to a number
           return of(new Date(+params['year'], +params['month'] - 1));
         } else {
           return of(new Date());
@@ -39,9 +38,9 @@ export class SummaryComponent {
 
     this.summary$ = this.selectedDate$.pipe(
       switchMap((date) =>
-        // JS's getMonth is zero indexed :(
         this.backendApiService.loadSummary(
           date.getFullYear(),
+          // JS's getMonth is zero indexed :(
           date.getMonth() + 1,
         ),
       ),

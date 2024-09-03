@@ -7,5 +7,3 @@ $purple: #d50ca2;
   $primary: $purple,
   $dark: color.adjust($purple, $lightness: -10%)
 );
-
-@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
