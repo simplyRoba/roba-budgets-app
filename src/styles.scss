@@ -7,3 +7,16 @@ $purple: #d50ca2;
   $primary: $purple,
   $dark: color.adjust($purple, $lightness: -10%)
 );
+
+.container-above-fixed-bottom {
+  padding-bottom: 3rem;
+}
+
+.container-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: var(--bulma-navbar-height);
+  padding: 1rem 1.5rem;
+  background-color: var(--bulma-body-background-color);
+}

@@ -19,7 +19,9 @@ export class BackendApiService {
 
   public loadIncomeList(year: number, month: number): Observable<Income[]> {
     return this.httpClient
-      .get<IncomeJson[]>(`${environment.host}/api/v1/income/year/${year}/month/${month}`)
+      .get<
+        IncomeJson[]
+      >(`${environment.host}/api/v1/income/year/${year}/month/${month}`)
       .pipe(
         map((jsonList) => {
           return jsonList.map((jsonItem) => {

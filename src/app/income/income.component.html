@@ -1,4 +1,4 @@
-<div class="income-container">
+<div class="container-above-fixed-bottom">
   <div class="content">
     @if (incomeList$ | async; as incomeList) {
       @for (income of incomeList; track income.id) {
@@ -8,7 +8,10 @@
               {{ income.title }}
             </div>
             <div class="column is-half has-text-right">
-              {{ income.amountInCents / 100 | currency: "EUR" : "symbol" : "1.2-2" }}
+              {{
+                income.amountInCents / 100
+                  | currency: "EUR" : "symbol" : "1.2-2"
+              }}
             </div>
           </div>
         </div>
@@ -21,33 +24,52 @@
             </div>
           </div>
         </div>
-      }
-    } @else {
+      } @else {
         <div class="box">
           <div class="columns is-mobile">
-            <div class="column is-half has-text-left has-text-weight-light">
-              <span class="is-skeleton">Skeleton</span>
-            </div>
-            <div class="column is-half has-text-right">
-              <span class="is-skeleton">Skeleton</span>
+            <div class="column is-half has-text-left">Gesamt</div>
+            <div class="column is-half has-text-right has-text-weight-semibold">
+              <span>{{
+                sumIncome(incomeList) / 100
+                  | currency: "EUR" : "symbol" : "1.2-2"
+              }}</span>
             </div>
           </div>
         </div>
       }
+    } @else {
+      <div class="box">
+        <div class="columns is-mobile">
+          <div class="column is-half has-text-left has-text-weight-light">
+            <span class="is-skeleton">Skeleton</span>
+          </div>
+          <div class="column is-half has-text-right">
+            <span class="is-skeleton">Skeleton</span>
+          </div>
+        </div>
+      </div>
+    }
   </div>
-  <div class="columns is-mobile">
-    <div class="column is-one-fifth">
-      <button routerLink="/summary" class="button is-fullwidth">
-        <span class="icon"><fa-icon [icon]="faChevronLeft"></fa-icon></span>
-      </button>
-    </div>
-    <div class="column is-four-fifth">
-      <button routerLink="add" class="button is-primary is-outlined is-fullwidth">
-        <span class="icon">
+</div>
+<div class="container-fixed-bottom">
+  <div class="container is-max-tablet">
+    <div class="columns is-mobile">
+      <div class="column is-four-fifth">
+        <button
+          routerLink="/income/edit"
+          class="button is-primary is-outlined is-fullwidth"
+        >
+          <span class="icon">
             <fa-icon [icon]="faPlus"></fa-icon>
-        </span>
-        <span>Add</span>
-      </button>
+          </span>
+          <span>Hinzufügen</span>
+        </button>
+      </div>
+      <div class="column is-one-fifth">
+        <button routerLink="/income/templates" class="button is-fullwidth">
+          <span class="icon"><fa-icon [icon]="faCopy"></fa-icon></span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
