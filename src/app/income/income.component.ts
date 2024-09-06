@@ -18,11 +18,11 @@ export class IncomeComponent {
   private backendApiService = inject(BackendApiService);
   private activatedRoute = inject(ActivatedRoute);
 
-  selectedDate$: Observable<Date>;
-  incomeList$: Observable<Income[]>;
+  $selectedDate: Observable<Date>;
+  $incomeList: Observable<Income[]>;
 
   constructor() {
-    this.selectedDate$ = this.activatedRoute.params.pipe(
+    this.$selectedDate = this.activatedRoute.params.pipe(
       switchMap((params) => {
         if (params['year'] && params['month']) {
           return of(new Date(+params['year'], +params['month'] - 1));
@@ -32,7 +32,7 @@ export class IncomeComponent {
       }),
     );
 
-    this.incomeList$ = this.selectedDate$.pipe(
+    this.$incomeList = this.$selectedDate.pipe(
       switchMap((date) =>
         this.backendApiService.loadIncomeList(
           date.getFullYear(),

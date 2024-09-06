@@ -1,0 +1,71 @@
+<div>
+  <div class="box">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="content has-text-left">
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="title">Titel</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control is-expanded">
+                <input
+                  id="title"
+                  class="input"
+                  type="text"
+                  formControlName="title"
+                  placeholder="z.B. Gehalt"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="amount">Betrag</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control is-expanded">
+                <input
+                  id="amount"
+                  class="input"
+                  type="number"
+                  formControlName="amount"
+                  placeholder="100"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="date">Datum</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input
+                  id="date"
+                  class="input"
+                  type="date"
+                  formControlName="date"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="field is-grouped is-grouped-centered">
+          <div class="control">
+            <button class="button" routerLink="/income">Abbrechen</button>
+          </div>
+          <div class="control">
+            <button class="button is-primary is-outlined" type="submit">Speichern</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

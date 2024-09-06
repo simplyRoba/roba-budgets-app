@@ -8,6 +8,13 @@ $purple: #d50ca2;
   $dark: color.adjust($purple, $lightness: -10%)
 );
 
+.input {
+  --bulma-input-focus-h: var(--bulma-primary-h);
+  --bulma-input-focus-l: var(--bulma-primary-l);
+  --bulma-input-focus-s: var(--bulma-primary-s);
+}
+
+
 .container-above-fixed-bottom {
   padding-bottom: 3rem;
 }

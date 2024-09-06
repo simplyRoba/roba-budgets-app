@@ -1,8 +1,8 @@
 <div class="container-above-fixed-bottom">
   <div class="content">
-    @if (incomeList$ | async; as incomeList) {
+    @if ($incomeList | async; as incomeList) {
       @for (income of incomeList; track income.id) {
-        <div class="box">
+        <div routerLink="/income/edit/{{ income.id }}" class="box">
           <div class="columns is-mobile">
             <div class="column is-half has-text-left has-text-weight-light">
               {{ income.title }}
@@ -56,7 +56,7 @@
     <div class="columns is-mobile">
       <div class="column is-four-fifth">
         <button
-          routerLink="/income/edit"
+          routerLink="/income/add"
           class="button is-primary is-outlined is-fullwidth"
         >
           <span class="icon">

@@ -22,11 +22,11 @@ export class SummaryComponent {
   private backendApiService = inject(BackendApiService);
   private activatedRoute = inject(ActivatedRoute);
 
-  selectedDate$: Observable<Date>;
-  summary$: Observable<Summary>;
+  $selectedDate: Observable<Date>;
+  $summary: Observable<Summary>;
 
   constructor() {
-    this.selectedDate$ = this.activatedRoute.params.pipe(
+    this.$selectedDate = this.activatedRoute.params.pipe(
       switchMap((params) => {
         if (params['year'] && params['month']) {
           return of(new Date(+params['year'], +params['month'] - 1));
@@ -36,7 +36,7 @@ export class SummaryComponent {
       }),
     );
 
-    this.summary$ = this.selectedDate$.pipe(
+    this.$summary = this.$selectedDate.pipe(
       switchMap((date) =>
         this.backendApiService.loadSummary(
           date.getFullYear(),
