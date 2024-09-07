@@ -1,6 +1,6 @@
-<div class="container-above-fixed-bottom">
-  <div class="content">
-    @if ($incomeList | async; as incomeList) {
+<div class="summary">
+  @if ($incomeList | async; as incomeList) {
+    <div class="container-above-fixed-bottom">
       @for (income of incomeList; track income.id) {
         <div routerLink="/income/edit/{{ income.id }}" class="box">
           <div class="columns is-mobile">
@@ -24,52 +24,80 @@
             </div>
           </div>
         </div>
-      } @else {
-        <div class="box">
-          <div class="columns is-mobile">
-            <div class="column is-half has-text-left">Gesamt</div>
-            <div class="column is-half has-text-right has-text-weight-semibold">
-              <span>{{
-                sumIncome(incomeList) / 100
-                  | currency: "EUR" : "symbol" : "1.2-2"
-              }}</span>
-            </div>
+      }
+    </div>
+    <div class="container-fixed-bottom with-border">
+      <div class="container is-max-tablet">
+        <div class="columns is-mobile is-align-items-center">
+          <div class="column is-one-fifth has-text-left">
+            <button routerLink="/income/templates" class="button is-text">
+              <span class="icon"><fa-icon [icon]="faCopy"></fa-icon></span>
+            </button>
+          </div>
+          <div
+            class="column is-four-fifth has-text-right has-text-weight-semibold"
+          >
+            <span>{{
+              sumIncome(incomeList) / 100 | currency: "EUR" : "symbol" : "1.2-2"
+            }}</span>
           </div>
         </div>
-      }
-    } @else {
+        <div class="columns is-mobile">
+          <div class="column is-one-fifth has-text-left">
+            <button routerLink="/" class="button">
+              <span class="icon"
+                ><fa-icon [icon]="faChevronLeft"></fa-icon
+              ></span>
+            </button>
+          </div>
+          <div class="column is-four-fifth">
+            <button
+              routerLink="/income/add"
+              class="button is-primary is-outlined is-fullwidth"
+            >
+              <span class="icon">
+                <fa-icon [icon]="faPlus"></fa-icon>
+              </span>
+              <span>Hinzufügen</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="container-above-fixed-bottom">
       <div class="box">
         <div class="columns is-mobile">
           <div class="column is-half has-text-left has-text-weight-light">
-            <span class="is-skeleton">Skeleton</span>
+            <span class="is-skeleton">Skeleton Title</span>
           </div>
           <div class="column is-half has-text-right">
             <span class="is-skeleton">Skeleton</span>
           </div>
         </div>
       </div>
-    }
-  </div>
-</div>
-<div class="container-fixed-bottom">
-  <div class="container is-max-tablet">
-    <div class="columns is-mobile">
-      <div class="column is-four-fifth">
-        <button
-          routerLink="/income/add"
-          class="button is-primary is-outlined is-fullwidth"
-        >
-          <span class="icon">
-            <fa-icon [icon]="faPlus"></fa-icon>
-          </span>
-          <span>Hinzufügen</span>
-        </button>
-      </div>
-      <div class="column is-one-fifth">
-        <button routerLink="/income/templates" class="button is-fullwidth">
-          <span class="icon"><fa-icon [icon]="faCopy"></fa-icon></span>
-        </button>
+    </div>
+    <div class="container-fixed-bottom with-border">
+      <div class="columns is-mobile">
+        <div class="column is-one-fifth has-text-left">
+          <button routerLink="/" class="button">
+              <span class="icon"
+              ><fa-icon [icon]="faChevronLeft"></fa-icon
+              ></span>
+          </button>
+        </div>
+        <div class="column is-four-fifth">
+          <button
+            routerLink="/income/add"
+            class="button is-primary is-outlined is-fullwidth"
+          >
+              <span class="icon">
+                <fa-icon [icon]="faPlus"></fa-icon>
+              </span>
+            <span>Hinzufügen</span>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  }
 </div>

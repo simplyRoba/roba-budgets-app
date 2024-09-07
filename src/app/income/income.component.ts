@@ -1,6 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { faCopy, faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronLeft,
+  faCopy,
+  faPlus,
+} from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Income } from '../shared/income.model';
 import { Observable, of, switchMap } from 'rxjs';
@@ -49,4 +53,5 @@ export class IncomeComponent {
 
   protected readonly faPlus = faPlus;
   protected readonly faCopy = faCopy;
+  protected readonly faChevronLeft = faChevronLeft;
 }

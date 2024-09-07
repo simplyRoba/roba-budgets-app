@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { IncomeComponent } from './income.component';
-import {EditComponent} from "./edit/edit.component";
+import { EditComponent } from './edit/edit.component';
 
 const incomeRoutes: Routes = [
   { path: '', component: IncomeComponent },
