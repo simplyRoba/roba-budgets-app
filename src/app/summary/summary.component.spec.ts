@@ -19,7 +19,6 @@ describe('SummaryComponent', () => {
           totalFixExpensesInCents: 0,
           totalFlexExpensesInCents: 0,
         }),
-      loadIncomeList: () => of([]),
     };
 
     await TestBed.configureTestingModule({
