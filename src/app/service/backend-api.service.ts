@@ -5,6 +5,8 @@ import { Income, IncomeCreate, IncomeJson } from '../shared/income.model';
 import { environment } from '../../environments/environment';
 import { Summary } from '../shared/summary.model';
 import { convertIncome } from './converter/income-json.converter';
+import {Expense, ExpenseJson, ExpenseType} from "../shared/expense.model";
+import {convertExpense} from "./converter/expense-json.converter";
 
 @Injectable({
   providedIn: 'root',
@@ -23,11 +25,7 @@ export class BackendApiService {
       .get<
         IncomeJson[]
       >(`${environment.host}/api/v1/income/year/${year}/month/${month}`)
-      .pipe(
-        map((jsonList) => {
-          return jsonList.map(convertIncome);
-        }),
-      );
+      .pipe(map((jsonList) => jsonList.map(convertIncome)),);
   }
 
   public loadIncome(id: number): Observable<Income> {
@@ -52,5 +50,11 @@ export class BackendApiService {
     return this.httpClient.delete<void>(
       `${environment.host}/api/v1/income/${id}`,
     );
+  }
+
+  public loadExpenseList(type: ExpenseType, year: number, month: number): Observable<Expense[]> {
+    return this.httpClient
+      .get<ExpenseJson[]>(`${environment.host}/api/v1/expense/type/${type.toLowerCase()}/year/${year}/month/${month}`)
+      .pipe(map((jsonList) => jsonList.map(convertExpense)));
   }
 }

@@ -79,7 +79,7 @@ export class EditIncomeComponent implements OnDestroy {
           .updateIncome(this.id, {
             title: this.form.value.title!,
             amountInCents: this.form.value.amount! * 100,
-            dueDate: this.form.value.date!,
+            dueDate: new Date(this.form.value.date!),
           })
           .subscribe((income) =>
             this.router
@@ -95,7 +95,7 @@ export class EditIncomeComponent implements OnDestroy {
           .saveIncome({
             title: this.form.value.title!,
             amountInCents: this.form.value.amount! * 100,
-            dueDate: this.form.value.date!,
+            dueDate: new Date(this.form.value.date!),
           })
           .subscribe((income) =>
             this.router
