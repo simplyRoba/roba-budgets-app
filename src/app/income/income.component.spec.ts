@@ -24,7 +24,9 @@ describe('IncomeComponent', () => {
         {
           provide: ActivatedRoute,
           useValue: {
-            params: of({}),
+            snapshot: {
+              params: {},
+            },
           },
         },
       ],

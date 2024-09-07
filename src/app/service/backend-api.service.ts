@@ -4,6 +4,7 @@ import { map, Observable } from 'rxjs';
 import { Income, IncomeCreate, IncomeJson } from '../shared/income.model';
 import { environment } from '../../environments/environment';
 import { Summary } from '../shared/summary.model';
+import { convertIncome } from './converter/income-json.converter';
 
 @Injectable({
   providedIn: 'root',
@@ -24,14 +25,7 @@ export class BackendApiService {
       >(`${environment.host}/api/v1/income/year/${year}/month/${month}`)
       .pipe(
         map((jsonList) => {
-          return jsonList.map((jsonItem) => {
-            return {
-              id: jsonItem.id,
-              title: jsonItem.title,
-              amountInCents: jsonItem.amountInCents,
-              dueDate: new Date(jsonItem.dueDate),
-            } satisfies Income;
-          });
+          return jsonList.map(convertIncome);
         }),
       );
   }
@@ -39,30 +33,19 @@ export class BackendApiService {
   public loadIncome(id: number): Observable<Income> {
     return this.httpClient
       .get<IncomeJson>(`${environment.host}/api/v1/income/${id}`)
-      .pipe(
-        map((jsonItem) => {
-          return {
-            id: jsonItem.id,
-            title: jsonItem.title,
-            amountInCents: jsonItem.amountInCents,
-            dueDate: new Date(jsonItem.dueDate),
-          } satisfies Income;
-        }),
-      );
+      .pipe(map(convertIncome));
   }
 
-  public saveIncome(income: IncomeCreate): Observable<void> {
-    return this.httpClient.post<void>(
-      `${environment.host}/api/v1/income`,
-      income,
-    );
+  public saveIncome(income: IncomeCreate): Observable<Income> {
+    return this.httpClient
+      .post<IncomeJson>(`${environment.host}/api/v1/income`, income)
+      .pipe(map(convertIncome));
   }
 
-  public updateIncome(id: number, income: IncomeCreate): Observable<void> {
-    return this.httpClient.put<void>(
-      `${environment.host}/api/v1/income/${id}`,
-      income,
-    );
+  public updateIncome(id: number, income: IncomeCreate): Observable<Income> {
+    return this.httpClient
+      .put<IncomeJson>(`${environment.host}/api/v1/income/${id}`, income)
+      .pipe(map(convertIncome));
   }
 
   public deleteIncome(id: number): Observable<void> {

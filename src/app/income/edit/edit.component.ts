@@ -31,8 +31,8 @@ export class EditComponent {
   id: number | null = null;
 
   form = new FormGroup({
-    title: new FormControl('', Validators.required),
-    amount: new FormControl(0, Validators.required),
+    title: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    amount: new FormControl(0, [Validators.required, Validators.min(1)]),
     date: new FormControl(
       new Date().toISOString().slice(0, 10),
       Validators.required,
@@ -42,7 +42,6 @@ export class EditComponent {
   constructor() {
     this.id = this.activatedRoute.snapshot.params['id'];
     if (this.id) {
-      // TODO is subscription necessary / the right way to do it?
       this.backendApiService.loadIncome(this.id).subscribe((income) => {
         this.form.setValue({
           title: income.title,
@@ -62,26 +61,37 @@ export class EditComponent {
   }
 
   submit() {
+    // TODO validate form
     if (this.id) {
       // TODO handle nullability?!
-      // TODO is subscription necessary / the right way to do it?
       this.backendApiService
         .updateIncome(this.id, {
           title: this.form.value.title!,
           amountInCents: this.form.value.amount! * 100,
           dueDate: this.form.value.date!,
         })
-        .subscribe(() => this.router.navigate(['/income']).then());
+        .subscribe((income) =>
+          this.router
+            .navigate([
+              `/income/${income.dueDate.getFullYear()}/${income.dueDate.getMonth() + 1}`,
+            ])
+            .then(),
+        );
     } else {
       // TODO handle nullability?!
-      // TODO is subscription necessary / the right way to do it?
       this.backendApiService
         .saveIncome({
           title: this.form.value.title!,
           amountInCents: this.form.value.amount! * 100,
           dueDate: this.form.value.date!,
         })
-        .subscribe(() => this.router.navigate(['/income']).then());
+        .subscribe((income) =>
+          this.router
+            .navigate([
+              `/income/${income.dueDate.getFullYear()}/${income.dueDate.getMonth() + 1}`,
+            ])
+            .then(),
+        );
     }
   }
 

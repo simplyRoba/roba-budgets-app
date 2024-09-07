@@ -3,7 +3,7 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Income } from '../shared/income.model';
-import { Observable, of, switchMap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { BackendApiService } from '../service/backend-api.service';
 import { AsyncPipe, CurrencyPipe } from '@angular/common';
 import { FixedBottomButtonGroupComponent } from '../shared/fixed-bottom-button-group/fixed-bottom-button-group.component';
@@ -25,28 +25,21 @@ export class IncomeComponent {
   private backendApiService = inject(BackendApiService);
   private activatedRoute = inject(ActivatedRoute);
 
-  $selectedDate: Observable<Date>;
+  selectedDate: Date;
   $incomeList: Observable<Income[]>;
 
   constructor() {
-    this.$selectedDate = this.activatedRoute.params.pipe(
-      switchMap((params) => {
-        if (params['year'] && params['month']) {
-          return of(new Date(+params['year'], +params['month'] - 1));
-        } else {
-          return of(new Date());
-        }
-      }),
-    );
+    const params = this.activatedRoute.snapshot.params;
+    if (params['year'] && params['month']) {
+      this.selectedDate = new Date(+params['year'], +params['month'] - 1);
+    } else {
+      this.selectedDate = new Date();
+    }
 
-    this.$incomeList = this.$selectedDate.pipe(
-      switchMap((date) =>
-        this.backendApiService.loadIncomeList(
-          date.getFullYear(),
-          // JS's getMonth is zero indexed :(
-          date.getMonth() + 1,
-        ),
-      ),
+    this.$incomeList = this.backendApiService.loadIncomeList(
+      this.selectedDate.getFullYear(),
+      // JS's getMonth is zero indexed :(
+      this.selectedDate.getMonth() + 1,
     );
   }
 

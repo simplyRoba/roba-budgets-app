@@ -43,6 +43,12 @@
           </div>
         </div>
         <roba-fixed-bottom-button-group
+          [abortButtonLink]="
+            '/summary/' +
+            selectedDate.getFullYear() +
+            '/' +
+            (selectedDate.getMonth() + 1)
+          "
           mainButtonLink="/income/add"
         ></roba-fixed-bottom-button-group>
       </div>
@@ -63,6 +69,12 @@
     <div class="container-fixed-bottom with-border">
       <div class="container is-max-tablet">
         <roba-fixed-bottom-button-group
+          [abortButtonLink]="
+            '/summary/' +
+            selectedDate.getFullYear() +
+            '/' +
+            (selectedDate.getMonth() + 1)
+          "
           mainButtonLink="/income/add"
         ></roba-fixed-bottom-button-group>
       </div>
