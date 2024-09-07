@@ -4,7 +4,9 @@
       @for (income of incomeList; track income.id) {
         <div routerLink="/income/edit/{{ income.id }}" class="box">
           <div class="columns is-mobile">
-            <div class="column is-half has-text-left has-text-weight-light">
+            <div
+              class="column is-half is-one-line-overflow has-text-left has-text-weight-light"
+            >
               {{ income.title }}
             </div>
             <div class="column is-half has-text-right">
