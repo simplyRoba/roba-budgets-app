@@ -5,14 +5,23 @@
     </button>
   </div>
   <div class="column is-four-fifth">
-    <button
-      [routerLink]="mainButtonLink()"
-      class="button is-primary is-outlined is-fullwidth"
-    >
-      <span class="icon">
-        <fa-icon [icon]="mainButtonIcon()"></fa-icon>
-      </span>
-      <span>{{ mainButtonText() }}</span>
-    </button>
+    @if (isFormSubmit()) {
+      <button type="submit" class="button is-primary is-outlined is-fullwidth">
+        <span class="icon">
+          <fa-icon [icon]="mainButtonIcon()"></fa-icon>
+        </span>
+        <span>{{ mainButtonText() }}</span>
+      </button>
+    } @else {
+      <button
+        [routerLink]="mainButtonLink()"
+        class="button is-primary is-outlined is-fullwidth"
+      >
+        <span class="icon">
+          <fa-icon [icon]="mainButtonIcon()"></fa-icon>
+        </span>
+        <span>{{ mainButtonText() }}</span>
+      </button>
+    }
   </div>
 </div>

@@ -13,7 +13,10 @@ import { faChevronLeft, faPlus } from '@fortawesome/free-solid-svg-icons';
 export class FixedBottomButtonGroupComponent {
   abortButtonLink = input('/');
   abortButtonIcon = input(faChevronLeft);
-  mainButtonLink = input.required<string>();
+  mainButtonLink = input('/');
   mainButtonText = input('Hinzufügen');
   mainButtonIcon = input(faPlus);
+  isFormSubmit = input(false, {
+    transform: (v: boolean | string) => (typeof v === 'string' ? v === '' : v),
+  });
 }

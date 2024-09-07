@@ -64,4 +64,10 @@ export class BackendApiService {
       income,
     );
   }
+
+  public deleteIncome(id: number): Observable<void> {
+    return this.httpClient.delete<void>(
+      `${environment.host}/api/v1/income/${id}`,
+    );
+  }
 }
