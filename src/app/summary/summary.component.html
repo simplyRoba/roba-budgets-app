@@ -123,14 +123,32 @@
   }
 </div>
 <div class="container-fixed-bottom">
-  <div class="container">
-    <button
-      routerLink="/expense/add"
-      class="button is-primary is-medium is-rounded is-light"
-    >
-      <span class="icon is-medium">
-        <fa-icon [icon]="faPlus" size="xl"></fa-icon>
-      </span>
-    </button>
+  <div class="container is-max-tablet">
+    <div class="level is-mobile">
+      <div class="level-item">
+        <button routerLink="/budgets" class="button is-white is-rounded">
+          <span class="icon has-text-grey-light">
+            <fa-icon [icon]="faWallet" size="lg"></fa-icon>
+          </span>
+        </button>
+      </div>
+      <div class="level-item">
+        <button
+          routerLink="/expense/add"
+          class="button is-primary is-medium is-rounded is-light"
+        >
+          <span class="icon is-medium">
+            <fa-icon [icon]="faPlus" size="xl"></fa-icon>
+          </span>
+        </button>
+      </div>
+      <div class="level-item">
+        <button routerLink="/settings" class="button is-white is-rounded">
+          <span class="icon has-text-grey-light">
+            <fa-icon [icon]="faGear" size="lg"></fa-icon>
+          </span>
+        </button>
+      </div>
+    </div>
   </div>
 </div>

@@ -7,7 +7,9 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import {
   faChevronLeft,
   faChevronRight,
+  faGear,
   faPlus,
+  faWallet,
 } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
@@ -50,4 +52,6 @@ export class SummaryComponent {
   protected readonly faChevronLeft = faChevronLeft;
   protected readonly faChevronRight = faChevronRight;
   protected readonly faPlus = faPlus;
+  protected readonly faWallet = faWallet;
+  protected readonly faGear = faGear;
 }
