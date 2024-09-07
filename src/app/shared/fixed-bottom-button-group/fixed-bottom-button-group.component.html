@@ -1,0 +1,18 @@
+<div class="columns is-mobile">
+  <div class="column is-one-fifth has-text-left">
+    <button [routerLink]="abortButtonLink()" class="button">
+      <span class="icon"><fa-icon [icon]="abortButtonIcon()"></fa-icon></span>
+    </button>
+  </div>
+  <div class="column is-four-fifth">
+    <button
+      [routerLink]="mainButtonLink()"
+      class="button is-primary is-outlined is-fullwidth"
+    >
+      <span class="icon">
+        <fa-icon [icon]="mainButtonIcon()"></fa-icon>
+      </span>
+      <span>{{ mainButtonText() }}</span>
+    </button>
+  </div>
+</div>

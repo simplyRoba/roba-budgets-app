@@ -12,7 +12,7 @@ import {
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-summary',
+  selector: 'roba-summary',
   standalone: true,
   imports: [AsyncPipe, CurrencyPipe, DatePipe, FaIconComponent, RouterLink],
   templateUrl: './summary.component.html',

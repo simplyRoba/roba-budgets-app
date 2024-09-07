@@ -9,7 +9,7 @@ import { BackendApiService } from '../../service/backend-api.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-edit',
+  selector: 'roba-edit',
   standalone: true,
   imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './edit.component.html',

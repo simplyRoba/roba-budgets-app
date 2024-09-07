@@ -5,7 +5,7 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-root',
+  selector: 'roba-root',
   standalone: true,
   imports: [RouterOutlet, FaIconComponent, RouterLink, NgClass],
   templateUrl: './app.component.html',
