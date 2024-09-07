@@ -38,7 +38,10 @@
               }}
             </div>
           </div>
-          <div class="columns is-mobile">
+          <div
+            [routerLink]="'/fix/' + summary.year + '/' + summary.month"
+            class="columns is-mobile"
+          >
             <div class="column is-half has-text-left has-text-weight-light">
               Fixkosten
             </div>
@@ -49,7 +52,10 @@
               }}
             </div>
           </div>
-          <div class="columns is-mobile">
+          <div
+            [routerLink]="'/flex/' + summary.year + '/' + summary.month"
+            class="columns is-mobile"
+          >
             <div class="column is-half has-text-left has-text-weight-light">
               Flexkosten
             </div>

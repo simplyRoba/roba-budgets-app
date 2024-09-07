@@ -13,7 +13,7 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'roba-edit',
+  selector: 'roba-edit-income',
   standalone: true,
   imports: [
     ReactiveFormsModule,
@@ -21,10 +21,10 @@ import { Subscription } from 'rxjs';
     FixedBottomButtonGroupComponent,
     FaIconComponent,
   ],
-  templateUrl: './edit.component.html',
-  styleUrl: './edit.component.scss',
+  templateUrl: './edit-income.component.html',
+  styleUrl: './edit-income.component.scss',
 })
-export class EditComponent implements OnDestroy {
+export class EditIncomeComponent implements OnDestroy {
   private backendApiService = inject(BackendApiService);
   private activatedRoute = inject(ActivatedRoute);
   private router = inject(Router);

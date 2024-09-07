@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Income } from '../shared/income.model';
+import { Income } from '../../shared/income.model';
 import { Observable } from 'rxjs';
-import { BackendApiService } from '../service/backend-api.service';
+import { BackendApiService } from '../../service/backend-api.service';
 import { AsyncPipe, CurrencyPipe } from '@angular/common';
-import { FixedBottomButtonGroupComponent } from '../shared/fixed-bottom-button-group/fixed-bottom-button-group.component';
+import { FixedBottomButtonGroupComponent } from '../../shared/fixed-bottom-button-group/fixed-bottom-button-group.component';
 
 @Component({
   selector: 'roba-income',
@@ -18,10 +18,10 @@ import { FixedBottomButtonGroupComponent } from '../shared/fixed-bottom-button-g
     CurrencyPipe,
     FixedBottomButtonGroupComponent,
   ],
-  templateUrl: './income.component.html',
-  styleUrl: './income.component.scss',
+  templateUrl: './income-list.component.html',
+  styleUrl: './income-list.component.scss',
 })
-export class IncomeComponent {
+export class IncomeListComponent {
   private backendApiService = inject(BackendApiService);
   private activatedRoute = inject(ActivatedRoute);
 
