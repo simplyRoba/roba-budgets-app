@@ -6,7 +6,6 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BackendApiService } from '../../../service/backend-api.service';
 import { Observable } from 'rxjs';
 import { Expense, ExpenseType } from '../../../shared/expense.model';
-import { Income } from '../../../shared/income.model';
 
 @Component({
   selector: 'roba-flex-list',
