@@ -1,28 +1,5 @@
 @use "bulma/sass/utilities/mixins";
 
-@include mixins.touch {
-  .navbar-item.centered {
-    flex-grow: 1;
-    justify-content: center;
-  }
-  .navbar {
-    .navbar-item .icon {
-      color: var(--bulma-text-00-invert);
-    }
-  }
-}
-
-@include mixins.desktop {
-  .navbar {
-    justify-content: center;
-
-    :hover .navbar-item:not(:hover) {
-      opacity: 0.3;
-      transition: opacity 3s;
-    }
-  }
-}
-
 .background-mesh {
   background-color: var(--bulma-body-background-color);
   //background-color: var(--bulma-background);

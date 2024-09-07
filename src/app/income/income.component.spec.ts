@@ -1,28 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SummaryComponent } from './summary.component';
+import { IncomeComponent } from './income.component';
 import { BackendApiService } from '../service/backend-api.service';
 import { of } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
-describe('SummaryComponent', () => {
-  let component: SummaryComponent;
-  let fixture: ComponentFixture<SummaryComponent>;
+describe('IncomeComponent', () => {
+  let component: IncomeComponent;
+  let fixture: ComponentFixture<IncomeComponent>;
 
   beforeEach(async () => {
     const backendApiService: Partial<BackendApiService> = {
-      loadSummary: (year, month) =>
-        of({
-          month: month,
-          year: year,
-          totalIncomeInCents: 0,
-          totalFixExpensesInCents: 0,
-          totalFlexExpensesInCents: 0,
-        }),
+      loadIncomeList: () => of([]),
     };
 
     await TestBed.configureTestingModule({
-      imports: [SummaryComponent],
+      imports: [IncomeComponent],
       providers: [
         {
           provide: BackendApiService,
@@ -31,13 +24,15 @@ describe('SummaryComponent', () => {
         {
           provide: ActivatedRoute,
           useValue: {
-            params: of({}),
+            snapshot: {
+              params: {},
+            },
           },
         },
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SummaryComponent);
+    fixture = TestBed.createComponent(IncomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

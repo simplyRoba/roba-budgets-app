@@ -5,6 +5,12 @@ export interface Income {
   dueDate: Date;
 }
 
+export interface IncomeCreate {
+  title: string;
+  amountInCents: number;
+  dueDate: string;
+}
+
 export interface IncomeJson {
   id: number;
   title: string;

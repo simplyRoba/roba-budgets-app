@@ -1,31 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import {
-  faGear,
-  faHome,
-  faMoneyBill,
-  faMoneyBillTransfer,
-  faMoneyBillWave,
-  faSackDollar,
-  faWallet,
-} from '@fortawesome/free-solid-svg-icons';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { NgClass } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'roba-root',
   standalone: true,
-  imports: [RouterOutlet, FaIconComponent, RouterLink, NgClass],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  navMenuOpen = false;
-  protected readonly faHome = faHome;
-  protected readonly faSackDollar = faSackDollar;
-  protected readonly faWallet = faWallet;
-  protected readonly faMoneyBillTransfer = faMoneyBillTransfer;
-  protected readonly faGear = faGear;
-  protected readonly faMoneyBill = faMoneyBill;
-  protected readonly faMoneyBillWave = faMoneyBillWave;
-}
+export class AppComponent {}

@@ -1,5 +1,5 @@
-<div class="summary-container">
-  @if (summary$ | async; as summary) {
+<div class="container-above-fixed-bottom">
+  @if ($summary | async; as summary) {
     <div class="card">
       <header class="card-header">
         <button
@@ -24,7 +24,10 @@
       </header>
       <div class="card-content">
         <div class="content is-medium">
-          <div class="columns is-mobile">
+          <div
+            [routerLink]="'/income/' + summary.year + '/' + summary.month"
+            class="columns is-mobile"
+          >
             <div class="column is-half has-text-left has-text-weight-light">
               Einkommen
             </div>
@@ -118,12 +121,34 @@
       </div>
     </div>
   }
-
-  <div class="container">
-    <button class="button is-primary is-medium is-rounded is-light">
-      <span class="icon is-medium">
-        <fa-icon [icon]="faPlus" size="xl"></fa-icon>
-      </span>
-    </button>
+</div>
+<div class="container-fixed-bottom">
+  <div class="container is-max-tablet">
+    <div class="level is-mobile">
+      <div class="level-item">
+        <button routerLink="/budgets" class="button is-white is-rounded">
+          <span class="icon has-text-grey-light">
+            <fa-icon [icon]="faWallet" size="lg"></fa-icon>
+          </span>
+        </button>
+      </div>
+      <div class="level-item">
+        <button
+          routerLink="/expense/add"
+          class="button is-primary is-medium is-rounded is-light"
+        >
+          <span class="icon is-medium">
+            <fa-icon [icon]="faPlus" size="xl"></fa-icon>
+          </span>
+        </button>
+      </div>
+      <div class="level-item">
+        <button routerLink="/settings" class="button is-white is-rounded">
+          <span class="icon has-text-grey-light">
+            <fa-icon [icon]="faGear" size="lg"></fa-icon>
+          </span>
+        </button>
+      </div>
+    </div>
   </div>
 </div>

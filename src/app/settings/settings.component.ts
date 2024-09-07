@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-settings',
+  selector: 'roba-settings',
   standalone: true,
   imports: [],
   templateUrl: './settings.component.html',

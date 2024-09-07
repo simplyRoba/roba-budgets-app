@@ -8,4 +8,47 @@ $purple: #d50ca2;
   $dark: color.adjust($purple, $lightness: -10%)
 );
 
-@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+// override bulma variables
+.input {
+  --bulma-input-focus-h: var(--bulma-primary-h);
+  --bulma-input-focus-l: var(--bulma-primary-l);
+  --bulma-input-focus-s: var(--bulma-primary-s);
+}
+
+// define custom variables
+:root {
+  --roba-fixed-bottem-height: 3.5rem;
+}
+
+// layout
+.container-above-fixed-bottom {
+  // -3rem for the padding of the hero-body
+  // 2rem for the padding of the container-fixed-bottom
+  // 1.5rem our own padding
+  padding-bottom: calc(var(--roba-fixed-bottem-height) + 2rem - 3rem + 1.5rem);
+}
+
+.container-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(
+    0deg,
+    var(--bulma-body-background-color) 0%,
+    var(--bulma-body-background-color) 90%,
+    rgb(0, 0, 0, 0) 100%
+  );
+  &.with-border {
+    background: var(--bulma-body-background-color);
+    border-top: 1px solid var(--bulma-border-weak);
+  }
+}
+
+// global helper
+.is-one-line-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -7,12 +7,14 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import {
   faChevronLeft,
   faChevronRight,
+  faGear,
   faPlus,
+  faWallet,
 } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-summary',
+  selector: 'roba-summary',
   standalone: true,
   imports: [AsyncPipe, CurrencyPipe, DatePipe, FaIconComponent, RouterLink],
   templateUrl: './summary.component.html',
@@ -22,14 +24,13 @@ export class SummaryComponent {
   private backendApiService = inject(BackendApiService);
   private activatedRoute = inject(ActivatedRoute);
 
-  selectedDate$: Observable<Date>;
-  summary$: Observable<Summary>;
+  $selectedDate: Observable<Date>;
+  $summary: Observable<Summary>;
 
   constructor() {
-    this.selectedDate$ = this.activatedRoute.params.pipe(
+    this.$selectedDate = this.activatedRoute.params.pipe(
       switchMap((params) => {
         if (params['year'] && params['month']) {
-          // (+) converts string to a number
           return of(new Date(+params['year'], +params['month'] - 1));
         } else {
           return of(new Date());
@@ -37,11 +38,11 @@ export class SummaryComponent {
       }),
     );
 
-    this.summary$ = this.selectedDate$.pipe(
+    this.$summary = this.$selectedDate.pipe(
       switchMap((date) =>
-        // JS's getMonth is zero indexed :(
         this.backendApiService.loadSummary(
           date.getFullYear(),
+          // JS's getMonth is zero indexed :(
           date.getMonth() + 1,
         ),
       ),
@@ -51,4 +52,6 @@ export class SummaryComponent {
   protected readonly faChevronLeft = faChevronLeft;
   protected readonly faChevronRight = faChevronRight;
   protected readonly faPlus = faPlus;
+  protected readonly faWallet = faWallet;
+  protected readonly faGear = faGear;
 }
