@@ -16,6 +16,9 @@ export class FixedBottomButtonGroupComponent {
   mainButtonLink = input('/');
   mainButtonText = input('Hinzufügen');
   mainButtonIcon = input(faPlus);
+  mainButtonDisabled = input(false, {
+    transform: (v: boolean | string) => (typeof v === 'string' ? v === '' : v),
+  });
   isFormSubmit = input(false, {
     transform: (v: boolean | string) => (typeof v === 'string' ? v === '' : v),
   });

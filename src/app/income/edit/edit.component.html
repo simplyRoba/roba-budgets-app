@@ -18,6 +18,11 @@
                     placeholder="z.B. Gehalt"
                   />
                 </div>
+                @if (form.get("title")?.touched && form.get("title")?.invalid) {
+                  <p class="help is-danger">
+                    Der Titel muss mindestens 3 Zeichen lang sein.
+                  </p>
+                }
               </div>
             </div>
           </div>
@@ -36,6 +41,13 @@
                     placeholder="100"
                   />
                 </div>
+                @if (
+                  form.get("amount")?.touched && form.get("amount")?.invalid
+                ) {
+                  <p class="help is-danger">
+                    Der Betrag muss mindestens 1 sein.
+                  </p>
+                }
               </div>
             </div>
           </div>
@@ -53,6 +65,9 @@
                     formControlName="date"
                   />
                 </div>
+                @if (form.get("date")?.touched && form.get("date")?.invalid) {
+                  <p class="help is-danger">Das Datum muss gesetzt sein.</p>
+                }
               </div>
             </div>
           </div>
@@ -75,6 +90,7 @@
       <div class="container is-max-tablet">
         <!-- we navigate back to actual month as this will be correct 95% of the time -->
         <roba-fixed-bottom-button-group
+          [mainButtonDisabled]="!form.untouched && form.invalid"
           isFormSubmit
           abortButtonLink="/income"
           [mainButtonIcon]="faSave"
