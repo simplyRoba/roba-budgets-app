@@ -1,4 +1,4 @@
-import {Expense, ExpenseJson, ExpenseType} from "../../shared/expense.model";
+import { Expense, ExpenseJson, ExpenseType } from '../../shared/expense.model';
 
 export function convertExpense(expense: ExpenseJson): Expense {
   return {

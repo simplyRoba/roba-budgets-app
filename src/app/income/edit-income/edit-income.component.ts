@@ -34,8 +34,8 @@ export class EditIncomeComponent implements OnDestroy {
   subscriptions: Subscription[] = [];
 
   form = new FormGroup({
-    title: new FormControl('', Validators.minLength(3)),
-    amount: new FormControl(0, Validators.min(1)),
+    title: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    amount: new FormControl(0, [Validators.required, Validators.min(1)]),
     date: new FormControl(
       new Date().toISOString().slice(0, 10),
       Validators.required,

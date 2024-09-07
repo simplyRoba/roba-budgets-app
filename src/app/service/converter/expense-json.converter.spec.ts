@@ -19,7 +19,9 @@ describe('convertExpense', () => {
     expect(expense.title).toBe(expenseJson.title);
     expect(expense.amountInCents).toBe(expenseJson.amountInCents);
     expect(expense.dueDate).toEqual(new Date(expenseJson.dueDate));
-    expect(expense.type).toBe(ExpenseType[expenseJson.type as keyof typeof ExpenseType]);
+    expect(expense.type).toBe(
+      ExpenseType[expenseJson.type as keyof typeof ExpenseType],
+    );
     expect(expense.categoryId).toBe(expenseJson.categoryId);
     expect(expense.budgetId).toBe(expenseJson.budgetId);
   });

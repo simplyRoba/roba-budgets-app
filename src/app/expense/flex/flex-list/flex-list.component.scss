@@ -2,6 +2,21 @@
   --roba-fixed-bottem-height: 7rem;
 }
 
+.expense-category {
+  line-height: 1.25;
+  margin-bottom: 0 !important;
+}
+
+.expense-title {
+  font-size: var(--bulma-size-small);
+  line-height: 1.25;
+  font-weight: var(--bulma-weight-normal);
+  // if we want to keep same height when empty
+  //&::after {
+  //  content: "\00a0";
+  //}
+}
+
 .is-fixed-bottom-sum {
   margin-right: 1.25rem; // bulma box padding
 }

@@ -1,13 +1,12 @@
-import {Component, inject} from '@angular/core';
-import {AsyncPipe, CurrencyPipe} from "@angular/common";
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import {
-  FixedBottomButtonGroupComponent
-} from "../../../shared/fixed-bottom-button-group/fixed-bottom-button-group.component";
-import {ActivatedRoute, RouterLink} from "@angular/router";
-import {BackendApiService} from "../../../service/backend-api.service";
-import {Observable} from "rxjs";
-import {Expense, ExpenseType} from "../../../shared/expense.model";
+import { Component, inject } from '@angular/core';
+import { AsyncPipe, CurrencyPipe } from '@angular/common';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { FixedBottomButtonGroupComponent } from '../../../shared/fixed-bottom-button-group/fixed-bottom-button-group.component';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { BackendApiService } from '../../../service/backend-api.service';
+import { Observable } from 'rxjs';
+import { Expense, ExpenseType } from '../../../shared/expense.model';
+import { Income } from '../../../shared/income.model';
 
 @Component({
   selector: 'roba-flex-list',
@@ -17,7 +16,7 @@ import {Expense, ExpenseType} from "../../../shared/expense.model";
     CurrencyPipe,
     FaIconComponent,
     FixedBottomButtonGroupComponent,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './flex-list.component.html',
   styleUrl: './flex-list.component.scss',
@@ -45,4 +44,7 @@ export class FlexListComponent {
     );
   }
 
+  sumExpense(expenseList: Expense[]): number {
+    return expenseList.reduce((sum, expense) => sum + expense.amountInCents, 0);
+  }
 }

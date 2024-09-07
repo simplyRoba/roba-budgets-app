@@ -1,11 +1,11 @@
 export interface Expense {
-  id: number,
-  title: string | null,
-  amountInCents: number,
-  dueDate: Date,
-  type: ExpenseType,
-  categoryId: number,
-  budgetId: number | null,
+  id: number;
+  title: string | null;
+  amountInCents: number;
+  dueDate: Date;
+  type: ExpenseType;
+  categoryId: number;
+  budgetId: number | null;
 }
 
 export enum ExpenseType {
@@ -15,20 +15,20 @@ export enum ExpenseType {
 }
 
 export interface ExpenseCreate {
-  title: string | null,
-  amountInCents: number,
-  dueDate: Date,
-  type: ExpenseType,
-  categoryId: number,
-  budgetId: number | null,
+  title: string | null;
+  amountInCents: number;
+  dueDate: Date;
+  type: ExpenseType;
+  categoryId: number;
+  budgetId: number | null;
 }
 
 export interface ExpenseJson {
-  id: number,
-  title: string | null,
-  amountInCents: number,
-  dueDate: string,
-  type: string,
-  categoryId: number,
-  budgetId: number | null,
+  id: number;
+  title: string | null;
+  amountInCents: number;
+  dueDate: string;
+  type: string;
+  categoryId: number;
+  budgetId: number | null;
 }
