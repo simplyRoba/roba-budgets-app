@@ -1,160 +1,163 @@
-<div class="container-above-fixed-bottom">
-  @if ($summary | async; as summary) {
-    <div class="card">
-      <header class="card-header">
-        <button
-          [routerLink]="'/summary/' + summary.year + '/' + (+summary.month - 1)"
-          class="card-header-icon"
-        >
+<div class="summary">
+  <div class="container-above-fixed-bottom">
+    @if ($summary | async; as summary) {
+      <div class="card">
+        <header class="card-header">
+          <button
+            [routerLink]="'/summary/' + summary.year + '/' + (+summary.month - 1)"
+            class="card-header-icon"
+          >
           <span class="icon">
             <fa-icon [icon]="faChevronLeft"></fa-icon>
           </span>
-        </button>
-        <p class="card-header-title is-large is-justify-content-center">
-          {{ summary.year + "-" + summary.month | date: "MMMM yyyy" }}
-        </p>
-        <button
-          [routerLink]="'/summary/' + summary.year + '/' + (+summary.month + 1)"
-          class="card-header-icon"
-        >
+          </button>
+          <p class="card-header-title is-large is-justify-content-center">
+            {{ summary.year + "-" + summary.month | date: "MMMM yyyy" }}
+          </p>
+          <button
+            [routerLink]="'/summary/' + summary.year + '/' + (+summary.month + 1)"
+            class="card-header-icon"
+          >
           <span class="icon">
             <fa-icon [icon]="faChevronRight"></fa-icon>
           </span>
-        </button>
-      </header>
-      <div class="card-content">
-        <div class="content is-medium">
-          <div
-            [routerLink]="'/income/' + summary.year + '/' + summary.month"
-            class="columns is-mobile"
-          >
-            <div class="column is-half has-text-left has-text-weight-light">
-              Einkommen
-            </div>
-            <div class="column is-half has-text-right">
-              {{
-                summary.totalIncomeInCents / 100
-                  | currency: "EUR" : "symbol" : "1.2-2"
-              }}
-            </div>
-          </div>
-          <div
-            [routerLink]="'/fix/' + summary.year + '/' + summary.month"
-            class="columns is-mobile"
-          >
-            <div class="column is-half has-text-left has-text-weight-light">
-              Fixkosten
-            </div>
-            <div class="column is-half has-text-right">
-              {{
-                summary.totalFixExpensesInCents / -100
-                  | currency: "EUR" : "symbol" : "1.2-2"
-              }}
-            </div>
-          </div>
-          <div
-            [routerLink]="'/flex/' + summary.year + '/' + summary.month"
-            class="columns is-mobile"
-          >
-            <div class="column is-half has-text-left has-text-weight-light">
-              Flexkosten
-            </div>
-            <div class="column is-half has-text-right">
-              {{
-                summary.totalFlexExpensesInCents / -100
-                  | currency: "EUR" : "symbol" : "1.2-2"
-              }}
-            </div>
-          </div>
-        </div>
-        <div class="content is-medium">
-          <div class="columns is-mobile">
+          </button>
+        </header>
+        <div class="card-content">
+          <div class="content is-medium">
             <div
-              class="column is-result is-full has-text-right has-text-weight-medium"
+              [routerLink]="'/income/' + summary.year + '/' + summary.month"
+              class="columns is-mobile"
             >
-              {{
-                (summary.totalIncomeInCents -
-                  summary.totalFixExpensesInCents -
-                  summary.totalFlexExpensesInCents) /
+              <div class="column is-half has-text-left has-text-weight-light">
+                Einkommen
+              </div>
+              <div class="column is-half has-text-right">
+                {{
+                  summary.totalIncomeInCents / 100
+                    | currency: "EUR" : "symbol" : "1.2-2"
+                }}
+              </div>
+            </div>
+            <div
+              [routerLink]="'/fix/' + summary.year + '/' + summary.month"
+              class="columns is-mobile"
+            >
+              <div class="column is-half has-text-left has-text-weight-light">
+                Fixkosten
+              </div>
+              <div class="column is-half has-text-right">
+                {{
+                  summary.totalFixExpensesInCents / -100
+                    | currency: "EUR" : "symbol" : "1.2-2"
+                }}
+              </div>
+            </div>
+            <div
+              [routerLink]="'/flex/' + summary.year + '/' + summary.month"
+              class="columns is-mobile"
+            >
+              <div class="column is-half has-text-left has-text-weight-light">
+                Flexkosten
+              </div>
+              <div class="column is-half has-text-right">
+                {{
+                  summary.totalFlexExpensesInCents / -100
+                    | currency: "EUR" : "symbol" : "1.2-2"
+                }}
+              </div>
+            </div>
+          </div>
+          <div class="content is-medium">
+            <div class="columns is-mobile">
+              <div
+                class="column is-result is-full has-text-right has-text-weight-medium"
+              >
+                {{
+                  (summary.totalIncomeInCents -
+                    summary.totalFixExpensesInCents -
+                    summary.totalFlexExpensesInCents) /
                   100 | currency: "EUR" : "symbol" : "1.2-2"
-              }}
+                }}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  } @else {
-    <div class="card">
-      <header class="card-header">
-        <p class="card-header-title is-large is-justify-content-center">
-          <span class="is-skeleton">Skeleton</span>
-        </p>
-      </header>
-      <div class="card-content">
-        <div class="content is-medium">
-          <div class="columns is-mobile">
-            <div class="column is-half has-text-left has-text-weight-light">
-              Einkommen
+    } @else {
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title is-large is-justify-content-center">
+            <span class="is-skeleton">Skeleton</span>
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content is-medium">
+            <div class="columns is-mobile">
+              <div class="column is-half has-text-left has-text-weight-light">
+                Einkommen
+              </div>
+              <div class="column is-half has-text-right">
+                <span class="is-skeleton">Skeleton</span>
+              </div>
             </div>
-            <div class="column is-half has-text-right">
-              <span class="is-skeleton">Skeleton</span>
+            <div class="columns is-mobile">
+              <div class="column is-half has-text-left has-text-weight-light">
+                Fixkosten
+              </div>
+              <div class="column is-half has-text-right">
+                <span class="is-skeleton">Skeleton</span>
+              </div>
+            </div>
+            <div class="columns is-mobile">
+              <div class="column is-half has-text-left has-text-weight-light">
+                Flexkosten
+              </div>
+              <div class="column is-half has-text-right">
+                <span class="is-skeleton">Skeleton</span>
+              </div>
             </div>
           </div>
-          <div class="columns is-mobile">
-            <div class="column is-half has-text-left has-text-weight-light">
-              Fixkosten
-            </div>
-            <div class="column is-half has-text-right">
-              <span class="is-skeleton">Skeleton</span>
-            </div>
-          </div>
-          <div class="columns is-mobile">
-            <div class="column is-half has-text-left has-text-weight-light">
-              Flexkosten
-            </div>
-            <div class="column is-half has-text-right">
-              <span class="is-skeleton">Skeleton</span>
-            </div>
-          </div>
-        </div>
-        <div class="content is-medium">
-          <div class="columns is-mobile">
-            <div class="column is-result is-full has-text-right">
-              <span class="is-skeleton">Skeleton</span>
+          <div class="content is-medium">
+            <div class="columns is-mobile">
+              <div class="column is-result is-full has-text-right">
+                <span class="is-skeleton">Skeleton</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  }
-</div>
-<div class="container-fixed-bottom">
-  <div class="container is-max-tablet">
-    <div class="level is-mobile">
-      <div class="level-item">
-        <button routerLink="/budgets" class="button is-white is-rounded">
+    }
+  </div>
+  <div class="container-fixed-bottom">
+    <div class="container is-max-tablet">
+      <div class="level is-mobile">
+        <div class="level-item">
+          <button routerLink="/budgets" class="button is-white is-rounded">
           <span class="icon has-text-grey-light">
             <fa-icon [icon]="faWallet" size="lg"></fa-icon>
           </span>
-        </button>
-      </div>
-      <div class="level-item">
-        <button
-          routerLink="/expense/add"
-          class="button is-primary is-medium is-rounded is-light"
-        >
+          </button>
+        </div>
+        <div class="level-item">
+          <button
+            routerLink="/expense/add"
+            class="button is-primary is-medium is-rounded is-light"
+          >
           <span class="icon is-medium">
             <fa-icon [icon]="faPlus" size="xl"></fa-icon>
           </span>
-        </button>
-      </div>
-      <div class="level-item">
-        <button routerLink="/settings" class="button is-white is-rounded">
+          </button>
+        </div>
+        <div class="level-item">
+          <button routerLink="/settings" class="button is-white is-rounded">
           <span class="icon has-text-grey-light">
             <fa-icon [icon]="faGear" size="lg"></fa-icon>
           </span>
-        </button>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+

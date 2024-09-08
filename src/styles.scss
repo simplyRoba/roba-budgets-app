@@ -40,9 +40,14 @@ $purple: #d50ca2;
     var(--bulma-body-background-color) 90%,
     rgb(0, 0, 0, 0) 100%
   );
+
   &.with-border {
     background: var(--bulma-body-background-color);
     border-top: 1px solid var(--bulma-border-weak);
+  }
+
+  .has-fixed-bottom-sum-margin {
+    margin-right: 1.25rem; // bulma box padding
   }
 }
 

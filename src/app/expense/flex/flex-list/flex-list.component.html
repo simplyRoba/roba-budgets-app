@@ -1,6 +1,13 @@
 <div class="flex">
   @if ($flexExpenseList | async; as flexExpenseList) {
     <div class="container-above-fixed-bottom">
+      <div class="box content is-medium">
+        <div class="columns is-mobile is-vcentered">
+          <div class="column is-full has-text-weight-semibold">
+            {{ currentMonth | date: "MMMM y" }}
+          </div>
+        </div>
+      </div>
       @for (expense of flexExpenseList; track expense.id) {
         <div
           routerLink="/flex/edit/{{ expense.id }}"
@@ -40,7 +47,7 @@
           <div
             class="column is-four-fifth has-text-right has-text-weight-semibold"
           >
-            <span class="is-fixed-bottom-sum">
+            <span class="has-fixed-bottom-sum-margin">
               {{
                 sumExpense(flexExpenseList) / 100
                   | currency: "EUR" : "symbol" : "1.2-2"
@@ -51,9 +58,9 @@
         <roba-fixed-bottom-button-group
           [abortButtonLink]="
             '/summary/' +
-            selectedDate.getFullYear() +
+            currentMonth.getFullYear() +
             '/' +
-            (selectedDate.getMonth() + 1)
+            (currentMonth.getMonth() + 1)
           "
           mainButtonLink="/flex/add"
         ></roba-fixed-bottom-button-group>
@@ -77,9 +84,9 @@
         <roba-fixed-bottom-button-group
           [abortButtonLink]="
             '/summary/' +
-            selectedDate.getFullYear() +
+            currentMonth.getFullYear() +
             '/' +
-            (selectedDate.getMonth() + 1)
+            (currentMonth.getMonth() + 1)
           "
           mainButtonLink="/flex/add"
         ></roba-fixed-bottom-button-group>

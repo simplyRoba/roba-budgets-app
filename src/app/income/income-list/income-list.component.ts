@@ -5,7 +5,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Income } from '../../shared/income.model';
 import { Observable } from 'rxjs';
 import { BackendApiService } from '../../service/backend-api.service';
-import { AsyncPipe, CurrencyPipe } from '@angular/common';
+import {AsyncPipe, CurrencyPipe, DatePipe} from '@angular/common';
 import { FixedBottomButtonGroupComponent } from '../../shared/fixed-bottom-button-group/fixed-bottom-button-group.component';
 
 @Component({
@@ -17,6 +17,7 @@ import { FixedBottomButtonGroupComponent } from '../../shared/fixed-bottom-butto
     AsyncPipe,
     CurrencyPipe,
     FixedBottomButtonGroupComponent,
+    DatePipe,
   ],
   templateUrl: './income-list.component.html',
   styleUrl: './income-list.component.scss',
@@ -25,21 +26,21 @@ export class IncomeListComponent {
   private backendApiService = inject(BackendApiService);
   private activatedRoute = inject(ActivatedRoute);
 
-  selectedDate: Date;
+  currentMonth: Date;
   $incomeList: Observable<Income[]>;
 
   constructor() {
     const params = this.activatedRoute.snapshot.params;
     if (params['year'] && params['month']) {
-      this.selectedDate = new Date(+params['year'], +params['month'] - 1);
+      this.currentMonth = new Date(+params['year'], +params['month'] - 1);
     } else {
-      this.selectedDate = new Date();
+      this.currentMonth = new Date();
     }
 
     this.$incomeList = this.backendApiService.loadIncomeList(
-      this.selectedDate.getFullYear(),
+      this.currentMonth.getFullYear(),
       // JS's getMonth is zero indexed :(
-      this.selectedDate.getMonth() + 1,
+      this.currentMonth.getMonth() + 1,
     );
   }
 

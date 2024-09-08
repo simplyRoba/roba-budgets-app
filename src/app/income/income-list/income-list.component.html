@@ -1,4 +1,4 @@
-<div class="summary">
+<div class="income">
   @if ($incomeList | async; as incomeList) {
     <div class="container-above-fixed-bottom">
       @for (income of incomeList; track income.id) {
@@ -42,7 +42,7 @@
           <div
             class="column is-four-fifth has-text-right has-text-weight-semibold"
           >
-            <span class="is-fixed-bottom-sum">{{
+            <span class="has-fixed-bottom-sum-margin">{{
               sumIncome(incomeList) / 100 | currency: "EUR" : "symbol" : "1.2-2"
             }}</span>
           </div>
@@ -50,9 +50,9 @@
         <roba-fixed-bottom-button-group
           [abortButtonLink]="
             '/summary/' +
-            selectedDate.getFullYear() +
+            currentMonth.getFullYear() +
             '/' +
-            (selectedDate.getMonth() + 1)
+            (currentMonth.getMonth() + 1)
           "
           mainButtonLink="/income/add"
         ></roba-fixed-bottom-button-group>
@@ -76,9 +76,9 @@
         <roba-fixed-bottom-button-group
           [abortButtonLink]="
             '/summary/' +
-            selectedDate.getFullYear() +
+            currentMonth.getFullYear() +
             '/' +
-            (selectedDate.getMonth() + 1)
+            (currentMonth.getMonth() + 1)
           "
           mainButtonLink="/income/add"
         ></roba-fixed-bottom-button-group>
