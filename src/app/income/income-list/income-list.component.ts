@@ -5,7 +5,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Income } from '../../shared/income.model';
 import { Observable } from 'rxjs';
 import { BackendApiService } from '../../service/backend-api.service';
-import {AsyncPipe, CurrencyPipe, DatePipe} from '@angular/common';
+import { AsyncPipe, CurrencyPipe, DatePipe } from '@angular/common';
 import { FixedBottomButtonGroupComponent } from '../../shared/fixed-bottom-button-group/fixed-bottom-button-group.component';
 
 @Component({

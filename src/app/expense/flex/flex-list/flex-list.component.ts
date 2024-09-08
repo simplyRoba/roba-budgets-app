@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import {AsyncPipe, CurrencyPipe, DatePipe} from '@angular/common';
+import { AsyncPipe, CurrencyPipe, DatePipe } from '@angular/common';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { FixedBottomButtonGroupComponent } from '../../../shared/fixed-bottom-button-group/fixed-bottom-button-group.component';
 import { ActivatedRoute, RouterLink } from '@angular/router';
