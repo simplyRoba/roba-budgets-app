@@ -6,7 +6,10 @@ import { Income } from '../../shared/income.model';
 import { Observable } from 'rxjs';
 import { BackendApiService } from '../../service/backend-api.service';
 import { AsyncPipe, CurrencyPipe, DatePipe } from '@angular/common';
-import { FixedBottomButtonGroupComponent } from '../../shared/fixed-bottom-button-group/fixed-bottom-button-group.component';
+import { FixedBottomContainerButtonGroupComponent } from '../../shared/components/fixed-bottom-container/fixed-bottom-container-button-group/fixed-bottom-container-button-group.component';
+import { FixedBottomContainerComponent } from '../../shared/components/fixed-bottom-container/fixed-bottom-container.component';
+import { ScrollContainerComponent } from '../../shared/components/scroll-container/scroll-container.component';
+import { FixedBottomContainerSumRowComponent } from '../../shared/components/fixed-bottom-container/fixed-bottom-container-sum-row/fixed-bottom-container-sum-row.component';
 
 @Component({
   selector: 'roba-income',
@@ -16,8 +19,11 @@ import { FixedBottomButtonGroupComponent } from '../../shared/fixed-bottom-butto
     RouterLink,
     AsyncPipe,
     CurrencyPipe,
-    FixedBottomButtonGroupComponent,
     DatePipe,
+    FixedBottomContainerButtonGroupComponent,
+    FixedBottomContainerComponent,
+    ScrollContainerComponent,
+    FixedBottomContainerSumRowComponent,
   ],
   templateUrl: './income-list.component.html',
   styleUrl: './income-list.component.scss',

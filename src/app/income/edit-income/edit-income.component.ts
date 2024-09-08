@@ -7,10 +7,12 @@ import {
 } from '@angular/forms';
 import { BackendApiService } from '../../service/backend-api.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { FixedBottomButtonGroupComponent } from '../../shared/fixed-bottom-button-group/fixed-bottom-button-group.component';
 import { faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { Subscription } from 'rxjs';
+import { FixedBottomContainerButtonGroupComponent } from '../../shared/components/fixed-bottom-container/fixed-bottom-container-button-group/fixed-bottom-container-button-group.component';
+import { ScrollContainerComponent } from '../../shared/components/scroll-container/scroll-container.component';
+import { FixedBottomContainerComponent } from '../../shared/components/fixed-bottom-container/fixed-bottom-container.component';
 
 @Component({
   selector: 'roba-edit-income',
@@ -18,8 +20,10 @@ import { Subscription } from 'rxjs';
   imports: [
     ReactiveFormsModule,
     RouterLink,
-    FixedBottomButtonGroupComponent,
     FaIconComponent,
+    FixedBottomContainerButtonGroupComponent,
+    ScrollContainerComponent,
+    FixedBottomContainerComponent,
   ],
   templateUrl: './edit-income.component.html',
   styleUrl: './edit-income.component.scss',

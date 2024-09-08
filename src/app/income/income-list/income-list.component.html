@@ -1,8 +1,8 @@
-<div class="income">
+<div class="income box-list">
   @if ($incomeList | async; as incomeList) {
-    <div class="container-above-fixed-bottom">
+    <roba-scroll-container>
       <!-- we could make it sticky with position: sticky and top: 0 -->
-      <div class="box content is-medium">
+      <div class="box is-title content is-medium">
         <div class="columns is-mobile is-vcentered">
           <div class="column is-full has-text-weight-semibold">
             {{ currentMonth | date: "MMMM yyyy" }}
@@ -14,7 +14,7 @@
           routerLink="/income/edit/{{ income.id }}"
           class="box content is-medium"
         >
-          <div class="columns is-mobile">
+          <div class="columns is-mobile is-vcentered">
             <div
               class="column has-one-line-overflow has-text-left has-text-weight-light"
             >
@@ -38,36 +38,27 @@
           </div>
         </div>
       }
-    </div>
-    <div class="container-fixed-bottom with-border">
-      <div class="container is-max-tablet content is-medium">
-        <div class="columns is-mobile is-vcentered">
-          <div class="column is-one-fifth has-text-left">
-            <button routerLink="/income/templates" class="button is-text">
-              <span class="icon"><fa-icon [icon]="faCopy"></fa-icon></span>
-            </button>
-          </div>
-          <div
-            class="column is-four-fifth has-text-right has-text-weight-semibold"
-          >
-            <span class="has-fixed-bottom-sum-margin">{{
-              sumIncome(incomeList) / 100 | currency: "EUR" : "symbol" : "1.2-2"
-            }}</span>
-          </div>
-        </div>
-        <roba-fixed-bottom-button-group
-          [abortButtonLink]="
-            '/summary/' +
-            currentMonth.getFullYear() +
-            '/' +
-            (currentMonth.getMonth() + 1)
-          "
-          mainButtonLink="/income/add"
-        ></roba-fixed-bottom-button-group>
-      </div>
-    </div>
+    </roba-scroll-container>
+    <roba-fixed-bottom-container>
+      <roba-fixed-bottom-container-sum-row
+        templateLink="/income/templates"
+        sumString="{{
+          sumIncome(incomeList) / 100 | currency: 'EUR' : 'symbol' : '1.2-2'
+        }}"
+      >
+      </roba-fixed-bottom-container-sum-row>
+      <roba-fixed-bottom-container-button-group
+        [abortButtonLink]="
+          '/summary/' +
+          currentMonth.getFullYear() +
+          '/' +
+          (currentMonth.getMonth() + 1)
+        "
+        mainButtonLink="/income/add"
+      ></roba-fixed-bottom-container-button-group>
+    </roba-fixed-bottom-container>
   } @else {
-    <div class="container-above-fixed-bottom">
+    <roba-scroll-container>
       <div class="box content is-medium">
         <div class="columns is-mobile">
           <div class="column has-text-left has-text-weight-light">
@@ -78,19 +69,17 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="container-fixed-bottom with-border">
-      <div class="container is-max-tablet content is-medium">
-        <roba-fixed-bottom-button-group
-          [abortButtonLink]="
-            '/summary/' +
-            currentMonth.getFullYear() +
-            '/' +
-            (currentMonth.getMonth() + 1)
-          "
-          mainButtonLink="/income/add"
-        ></roba-fixed-bottom-button-group>
-      </div>
-    </div>
+    </roba-scroll-container>
+    <roba-fixed-bottom-container>
+      <roba-fixed-bottom-container-button-group
+        [abortButtonLink]="
+          '/summary/' +
+          currentMonth.getFullYear() +
+          '/' +
+          (currentMonth.getMonth() + 1)
+        "
+        mainButtonLink="/income/add"
+      ></roba-fixed-bottom-container-button-group>
+    </roba-fixed-bottom-container>
   }
 </div>

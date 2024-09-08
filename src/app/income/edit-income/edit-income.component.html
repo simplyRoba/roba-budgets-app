@@ -1,6 +1,6 @@
 <div class="edit">
   <form [formGroup]="form" (ngSubmit)="submit()">
-    <div class="container-above-fixed-bottom">
+    <roba-scroll-container>
       <div class="box">
         <div class="content has-text-left">
           <div class="field is-horizontal">
@@ -85,18 +85,16 @@
           <span>Löschen</span>
         </button>
       }
-    </div>
-    <div class="container-fixed-bottom">
-      <div class="container is-max-tablet">
-        <!-- we navigate back to actual month as this will be correct 95% of the time -->
-        <roba-fixed-bottom-button-group
-          [mainButtonDisabled]="!form.untouched && form.invalid"
-          isFormSubmit
-          abortButtonLink="/income"
-          [mainButtonIcon]="faSave"
-          mainButtonText="Speichern"
-        ></roba-fixed-bottom-button-group>
-      </div>
-    </div>
+    </roba-scroll-container>
+    <roba-fixed-bottom-container>
+      <!-- we navigate back to actual month as this will be correct 95% of the time -->
+      <roba-fixed-bottom-container-button-group
+        [mainButtonDisabled]="!form.untouched && form.invalid"
+        isFormSubmit
+        abortButtonLink="/income"
+        [mainButtonIcon]="faSave"
+        mainButtonText="Speichern"
+      ></roba-fixed-bottom-container-button-group>
+    </roba-fixed-bottom-container>
   </form>
 </div>

@@ -1,0 +1,12 @@
+<div class="columns is-mobile is-vcentered">
+  @if (templateLink()) {
+    <div class="column is-narrow has-text-left">
+      <button [routerLink]="templateLink()" class="button is-text">
+        <span class="icon"><fa-icon [icon]="faCopy"></fa-icon></span>
+      </button>
+    </div>
+  }
+  <div class="column has-text-right has-text-weight-semibold">
+    <span class="has-fixed-bottom-sum-margin">{{ sumString() }}</span>
+  </div>
+</div>

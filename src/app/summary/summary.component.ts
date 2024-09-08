@@ -12,11 +12,19 @@ import {
   faWallet,
 } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { FixedBottomContainerComponent } from '../shared/components/fixed-bottom-container/fixed-bottom-container.component';
 
 @Component({
   selector: 'roba-summary',
   standalone: true,
-  imports: [AsyncPipe, CurrencyPipe, DatePipe, FaIconComponent, RouterLink],
+  imports: [
+    AsyncPipe,
+    CurrencyPipe,
+    DatePipe,
+    FaIconComponent,
+    RouterLink,
+    FixedBottomContainerComponent,
+  ],
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.scss',
 })

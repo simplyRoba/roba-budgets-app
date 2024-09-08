@@ -1,0 +1,22 @@
+.fixed-bottom-container {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(
+    0deg,
+    var(--bulma-body-background-color) 0%,
+    var(--bulma-body-background-color) 90%,
+    rgb(0, 0, 0, 0) 100%
+  );
+
+  &.with-border {
+    background: var(--bulma-body-background-color);
+    border-top: 1px solid var(--bulma-border-weak);
+  }
+
+  .has-fixed-bottom-sum-margin {
+    margin-right: 1.25rem; // bulma box padding
+  }
+}
