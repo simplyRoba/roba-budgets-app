@@ -2,6 +2,13 @@
   --roba-fixed-bottem-height: 7rem;
 }
 
+.box-list .box {
+  --bulma-block-spacing: 0.75rem;
+  &.is-title {
+    --bulma-block-spacing: 1.5rem;
+  }
+}
+
 .expense-category {
   line-height: 1.25;
   margin-bottom: 0 !important;

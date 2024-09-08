@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Income } from '../../shared/income.model';
 import { Observable } from 'rxjs';
@@ -53,6 +52,4 @@ export class IncomeListComponent {
   sumIncome(incomeList: Income[]): number {
     return incomeList.reduce((sum, income) => sum + income.amountInCents, 0);
   }
-
-  protected readonly faCopy = faCopy;
 }

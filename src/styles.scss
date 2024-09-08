@@ -26,10 +26,3 @@ $purple: #d50ca2;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-.box-list .box {
-  --bulma-block-spacing: 0.75rem;
-  &.is-title {
-    --bulma-block-spacing: 1.5rem;
-  }
-}

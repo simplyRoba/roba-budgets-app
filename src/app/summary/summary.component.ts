@@ -13,6 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FixedBottomContainerComponent } from '../shared/components/fixed-bottom-container/fixed-bottom-container.component';
+import { ScrollContainerComponent } from '../shared/components/scroll-container/scroll-container.component';
 
 @Component({
   selector: 'roba-summary',
@@ -24,6 +25,7 @@ import { FixedBottomContainerComponent } from '../shared/components/fixed-bottom
     FaIconComponent,
     RouterLink,
     FixedBottomContainerComponent,
+    ScrollContainerComponent,
   ],
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.scss',

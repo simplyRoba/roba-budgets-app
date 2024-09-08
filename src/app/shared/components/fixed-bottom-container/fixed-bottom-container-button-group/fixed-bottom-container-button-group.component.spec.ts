@@ -4,7 +4,7 @@ import { FixedBottomContainerButtonGroupComponent } from './fixed-bottom-contain
 import { of } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
-describe('FixedBottomButtonGroupComponent', () => {
+describe('FixedBottomContainerButtonGroupComponent', () => {
   let component: FixedBottomContainerButtonGroupComponent;
   let fixture: ComponentFixture<FixedBottomContainerButtonGroupComponent>;
 
