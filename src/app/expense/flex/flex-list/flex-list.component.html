@@ -1,21 +1,29 @@
 <div class="flex">
   @if ($flexExpenseList | async; as flexExpenseList) {
     <div class="container-above-fixed-bottom">
+      <!-- we could make it sticky with position: sticky and top: 0 -->
+      <div class="box content is-medium">
+        <div class="columns is-mobile is-vcentered">
+          <div class="column is-full has-text-weight-semibold">
+            {{ currentMonth | date: "MMMM yyyy" }}
+          </div>
+        </div>
+      </div>
       @for (expense of flexExpenseList; track expense.id) {
         <div
           routerLink="/flex/edit/{{ expense.id }}"
           class="box content is-medium"
         >
           <div class="columns is-mobile is-vcentered">
-            <div class="column is-half has-text-left has-text-weight-light">
-              <p class="expense-category is-one-line-overflow">
+            <div class="column has-text-left has-text-weight-light">
+              <p class="expense-category has-one-line-overflow">
                 {{ expense.categoryId }}
               </p>
-              <p class="expense-title is-one-line-overflow">
+              <p class="expense-title has-one-line-overflow">
                 {{ expense.title }}
               </p>
             </div>
-            <div class="column is-half has-text-right">
+            <div class="column is-narrow has-text-right">
               {{
                 expense.amountInCents / 100
                   | currency: "EUR" : "symbol" : "1.2-2"
@@ -63,10 +71,10 @@
     <div class="container-above-fixed-bottom">
       <div class="box content is-medium">
         <div class="columns is-mobile is-vcentered">
-          <div class="column is-half has-text-left has-text-weight-light">
+          <div class="column has-text-left has-text-weight-light">
             <span class="is-skeleton">Skeleton Title</span>
           </div>
-          <div class="column is-half has-text-right">
+          <div class="column is-narrow has-text-right">
             <span class="is-skeleton">Skeleton</span>
           </div>
         </div>

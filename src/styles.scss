@@ -8,19 +8,19 @@ $purple: #d50ca2;
   $dark: color.adjust($purple, $lightness: -10%)
 );
 
-// override bulma variables
+// ###### override bulma variables ######
 .input {
   --bulma-input-focus-h: var(--bulma-primary-h);
   --bulma-input-focus-l: var(--bulma-primary-l);
   --bulma-input-focus-s: var(--bulma-primary-s);
 }
 
-// define custom variables
+// ###### define custom variables ######
 :root {
   --roba-fixed-bottem-height: 3.5rem;
 }
 
-// layout
+// ###### layout ######
 .container-above-fixed-bottom {
   // -3rem for the padding of the hero-body
   // 2rem for the padding of the container-fixed-bottom
@@ -51,8 +51,8 @@ $purple: #d50ca2;
   }
 }
 
-// global helper
-.is-one-line-overflow {
+// ###### global helper ######
+.has-one-line-overflow {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
