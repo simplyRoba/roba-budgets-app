@@ -1,13 +1,6 @@
 <div class="flex">
   @if ($flexExpenseList | async; as flexExpenseList) {
     <div class="container-above-fixed-bottom">
-      <div class="box content is-medium">
-        <div class="columns is-mobile is-vcentered">
-          <div class="column is-full has-text-weight-semibold">
-            {{ currentMonth | date: "MMMM y" }}
-          </div>
-        </div>
-      </div>
       @for (expense of flexExpenseList; track expense.id) {
         <div
           routerLink="/flex/edit/{{ expense.id }}"
