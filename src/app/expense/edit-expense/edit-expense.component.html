@@ -1,4 +1,4 @@
-<div class="income edit">
+<div class="flex edit">
   <form [formGroup]="form" (ngSubmit)="submit()">
     <roba-scroll-container>
       <div class="box">
@@ -15,7 +15,7 @@
                     class="input"
                     type="text"
                     formControlName="title"
-                    placeholder="z.B. Gehalt"
+                    placeholder="z.B. Einkauf"
                   />
                 </div>
                 @if (form.get("title")?.touched && form.get("title")?.invalid) {
@@ -43,7 +43,7 @@
                 </div>
                 @if (
                   form.get("amount")?.touched && form.get("amount")?.invalid
-                ) {
+                  ) {
                   <p class="help is-danger">
                     Der Betrag muss mindestens 1 sein.
                   </p>
@@ -71,6 +71,28 @@
               </div>
             </div>
           </div>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label for="category" class="label">Kategorie</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input
+                    id="category"
+                    class="input"
+                    type="text"
+                    formControlName="category"
+                  />
+                </div>
+                @if (form.get("category")?.touched && form.get("category")?.invalid) {
+                  <p class="help is-danger">
+                    Die Kategorie darf nicht leer sein.
+                  </p>
+                }
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       @if (id) {
@@ -91,7 +113,7 @@
       <roba-fixed-bottom-container-button-group
         [mainButtonDisabled]="!form.untouched && form.invalid"
         isFormSubmit
-        abortButtonLink="/income"
+        abortButtonLink="/flex"
         [mainButtonIcon]="faSave"
         mainButtonText="Speichern"
       ></roba-fixed-bottom-container-button-group>

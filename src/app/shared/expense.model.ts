@@ -23,6 +23,15 @@ export interface ExpenseCreate {
   budgetId: number | null;
 }
 
+export interface ExpenseUpdate {
+  title: string | null;
+  amountInCents: number;
+  dueDate: Date;
+  type: ExpenseType;
+  categoryId: number;
+  budgetId: number | null;
+}
+
 export interface ExpenseJson {
   id: number;
   title: string | null;
