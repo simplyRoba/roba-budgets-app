@@ -1,7 +1,12 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
-import {Income, IncomeCreate, IncomeJson, IncomeUpdate} from '../shared/income.model';
+import {
+  Income,
+  IncomeCreate,
+  IncomeJson,
+  IncomeUpdate,
+} from '../shared/income.model';
 import { environment } from '../../environments/environment';
 import { Summary } from '../shared/summary.model';
 import { convertIncome } from './converter/income-json.converter';
@@ -10,7 +15,7 @@ import {
   ExpenseCreate,
   ExpenseJson,
   ExpenseType,
-  ExpenseUpdate
+  ExpenseUpdate,
 } from '../shared/expense.model';
 import { convertExpense } from './converter/expense-json.converter';
 
@@ -70,9 +75,9 @@ export class BackendApiService {
       .pipe(map((jsonList) => jsonList.map(convertExpense)));
   }
 
-  public loadExpense(id: number): Observable<Expense> {
+  public loadExpense(id: number, type: ExpenseType): Observable<Expense> {
     return this.httpClient
-      .get<ExpenseJson>(`${environment.host}/api/v1/expense/${id}`)
+      .get<ExpenseJson>(`${environment.host}/api/v1/expense/${id}/type/${type}`)
       .pipe(map(convertExpense));
   }
 
@@ -82,7 +87,10 @@ export class BackendApiService {
       .pipe(map(convertExpense));
   }
 
-  public updateExpense(id: number, expense: ExpenseUpdate): Observable<Expense> {
+  public updateExpense(
+    id: number,
+    expense: ExpenseUpdate,
+  ): Observable<Expense> {
     return this.httpClient
       .put<ExpenseJson>(`${environment.host}/api/v1/expense/${id}`, expense)
       .pipe(map(convertExpense));

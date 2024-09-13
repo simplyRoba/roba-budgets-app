@@ -88,7 +88,9 @@ export class EditIncomeComponent implements OnDestroy {
           .subscribe((income) =>
             this.router
               .navigate([
-                `/income/${income.dueDate.getFullYear()}/${income.dueDate.getMonth() + 1}`,
+                'income',
+                income.dueDate.getFullYear(),
+                income.dueDate.getMonth() + 1,
               ])
               .then(),
           ),
@@ -104,7 +106,9 @@ export class EditIncomeComponent implements OnDestroy {
           .subscribe((income) =>
             this.router
               .navigate([
-                `/income/${income.dueDate.getFullYear()}/${income.dueDate.getMonth() + 1}`,
+                'income',
+                income.dueDate.getFullYear(),
+                income.dueDate.getMonth() + 1,
               ])
               .then(),
           ),

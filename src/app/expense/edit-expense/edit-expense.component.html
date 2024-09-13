@@ -43,7 +43,7 @@
                 </div>
                 @if (
                   form.get("amount")?.touched && form.get("amount")?.invalid
-                  ) {
+                ) {
                   <p class="help is-danger">
                     Der Betrag muss mindestens 1 sein.
                   </p>
@@ -85,7 +85,9 @@
                     formControlName="category"
                   />
                 </div>
-                @if (form.get("category")?.touched && form.get("category")?.invalid) {
+                @if (
+                  form.get("category")?.touched && form.get("category")?.invalid
+                ) {
                   <p class="help is-danger">
                     Die Kategorie darf nicht leer sein.
                   </p>
