@@ -9,7 +9,7 @@ describe('convertExpense', () => {
       amountInCents: 5000,
       dueDate: '2023-10-01T00:00:00Z',
       type: 'FIX',
-      category: 2,
+      categoryId: 2,
       budgetId: 3,
     };
 
