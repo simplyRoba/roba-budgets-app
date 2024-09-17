@@ -1,14 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditComponent } from './edit.component';
+import { EditIncomeComponent } from './edit-income.component';
 import { BackendApiService } from '../../service/backend-api.service';
 import { of } from 'rxjs';
 import { Income } from '../../shared/income.model';
 import { ActivatedRoute } from '@angular/router';
 
-describe('EditComponent', () => {
-  let component: EditComponent;
-  let fixture: ComponentFixture<EditComponent>;
+describe('EditIncomeComponent', () => {
+  let component: EditIncomeComponent;
+  let fixture: ComponentFixture<EditIncomeComponent>;
 
   beforeEach(async () => {
     const backendApiService: Partial<BackendApiService> = {
@@ -22,7 +22,7 @@ describe('EditComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      imports: [EditComponent],
+      imports: [EditIncomeComponent],
       providers: [
         {
           provide: BackendApiService,
@@ -39,7 +39,7 @@ describe('EditComponent', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(EditComponent);
+    fixture = TestBed.createComponent(EditIncomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

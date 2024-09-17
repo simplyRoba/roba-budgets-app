@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FixedBottomButtonGroupComponent } from './fixed-bottom-button-group.component';
+import { FixedBottomContainerButtonGroupComponent } from './fixed-bottom-container-button-group.component';
 import { of } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
-describe('FixedBottomButtonGroupComponent', () => {
-  let component: FixedBottomButtonGroupComponent;
-  let fixture: ComponentFixture<FixedBottomButtonGroupComponent>;
+describe('FixedBottomContainerButtonGroupComponent', () => {
+  let component: FixedBottomContainerButtonGroupComponent;
+  let fixture: ComponentFixture<FixedBottomContainerButtonGroupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FixedBottomButtonGroupComponent],
+      imports: [FixedBottomContainerButtonGroupComponent],
       providers: [
         {
           provide: ActivatedRoute,
@@ -21,7 +21,7 @@ describe('FixedBottomButtonGroupComponent', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FixedBottomButtonGroupComponent);
+    fixture = TestBed.createComponent(FixedBottomContainerButtonGroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

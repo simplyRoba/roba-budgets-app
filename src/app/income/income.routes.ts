@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { IncomeComponent } from './income.component';
-import { EditComponent } from './edit/edit.component';
+import { IncomeListComponent } from './income-list/income-list.component';
+import { EditIncomeComponent } from './edit-income/edit-income.component';
 
 const incomeRoutes: Routes = [
-  { path: '', component: IncomeComponent },
-  { path: 'add', component: EditComponent },
-  { path: 'edit/:id', component: EditComponent },
-  { path: ':year/:month', component: IncomeComponent },
+  { path: '', component: IncomeListComponent },
+  { path: 'add', component: EditIncomeComponent },
+  { path: 'edit/:id', component: EditIncomeComponent },
+  { path: ':year/:month', component: IncomeListComponent },
 ];
 
 export default incomeRoutes;
