@@ -14,7 +14,6 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'roba-edit',
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     RouterLink,

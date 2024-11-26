@@ -10,7 +10,6 @@ import { FixedBottomButtonGroupComponent } from '../shared/fixed-bottom-button-g
 
 @Component({
   selector: 'roba-income',
-  standalone: true,
   imports: [
     FaIconComponent,
     RouterLink,

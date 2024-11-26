@@ -15,7 +15,6 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'roba-summary',
-  standalone: true,
   imports: [AsyncPipe, CurrencyPipe, DatePipe, FaIconComponent, RouterLink],
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.scss',
