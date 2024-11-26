@@ -12,7 +12,6 @@ import { FixedBottomContainerSumRowComponent } from '../../../shared/components/
 
 @Component({
   selector: 'roba-flex-list',
-  standalone: true,
   imports: [
     AsyncPipe,
     CurrencyPipe,

@@ -12,7 +12,6 @@ import { FixedBottomContainerSumRowComponent } from '../../shared/components/fix
 
 @Component({
   selector: 'roba-income',
-  standalone: true,
   imports: [
     FaIconComponent,
     RouterLink,

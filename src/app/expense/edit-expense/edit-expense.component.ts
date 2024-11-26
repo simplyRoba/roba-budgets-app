@@ -25,7 +25,6 @@ import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'roba-edit-expense',
-  standalone: true,
   imports: [
     FaIconComponent,
     FixedBottomContainerButtonGroupComponent,

@@ -6,7 +6,6 @@ import { faCopy } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'roba-fixed-bottom-container-sum-row',
-  standalone: true,
   imports: [CurrencyPipe, FaIconComponent, RouterLink],
   templateUrl: './fixed-bottom-container-sum-row.component.html',
   styleUrl: './fixed-bottom-container-sum-row.component.scss',

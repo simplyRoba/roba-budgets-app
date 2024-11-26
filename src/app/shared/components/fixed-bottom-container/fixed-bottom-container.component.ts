@@ -6,7 +6,6 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'roba-fixed-bottom-container',
-  standalone: true,
   imports: [
     CurrencyPipe,
     FaIconComponent,
