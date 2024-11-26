@@ -5,7 +5,6 @@ import { faChevronLeft, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'roba-fixed-bottom-container-button-group',
-  standalone: true,
   imports: [FaIconComponent, RouterLink],
   templateUrl: './fixed-bottom-container-button-group.component.html',
   styleUrl: './fixed-bottom-container-button-group.component.scss',

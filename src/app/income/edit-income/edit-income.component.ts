@@ -16,7 +16,6 @@ import { FixedBottomContainerComponent } from '../../shared/components/fixed-bot
 
 @Component({
   selector: 'roba-edit-income',
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     RouterLink,

@@ -17,7 +17,6 @@ import { ScrollContainerComponent } from '../shared/components/scroll-container/
 
 @Component({
   selector: 'roba-summary',
-  standalone: true,
   imports: [
     AsyncPipe,
     CurrencyPipe,
