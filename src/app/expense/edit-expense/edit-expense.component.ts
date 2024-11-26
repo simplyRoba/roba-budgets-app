@@ -12,8 +12,16 @@ import { ScrollContainerComponent } from '../../shared/components/scroll-contain
 import { faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { BackendApiService } from '../../service/backend-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import {
+  combineLatest,
+  mergeMap,
+  Observable,
+  Subscription,
+  toArray,
+} from 'rxjs';
 import { ExpenseType } from '../../shared/expense.model';
+import { Category } from '../../shared/category.model';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'roba-edit-expense',
@@ -24,6 +32,7 @@ import { ExpenseType } from '../../shared/expense.model';
     FixedBottomContainerComponent,
     ReactiveFormsModule,
     ScrollContainerComponent,
+    AsyncPipe,
   ],
   templateUrl: './edit-expense.component.html',
   styleUrl: './edit-expense.component.scss',
@@ -35,6 +44,7 @@ export class EditExpenseComponent implements OnDestroy {
 
   id: number | null = null;
   type: ExpenseType;
+  $categories: Observable<Category[]>;
 
   subscriptions: Subscription[] = [];
 
@@ -45,7 +55,10 @@ export class EditExpenseComponent implements OnDestroy {
       new Date().toISOString().slice(0, 10),
       Validators.required,
     ),
-    category: new FormControl(0, Validators.required),
+    category: new FormGroup({
+      id: new FormControl(0, Validators.required),
+      name: new FormControl('', Validators.required),
+    }),
   });
 
   constructor() {
@@ -57,18 +70,27 @@ export class EditExpenseComponent implements OnDestroy {
         ].toUpperCase() as keyof typeof ExpenseType
       ];
 
+    this.$categories = this.backendApiService.loadCategories();
+
     if (this.id) {
       this.subscriptions.push(
-        this.backendApiService
-          .loadExpense(this.id, this.type)
-          .subscribe((expense) => {
-            this.form.setValue({
-              title: expense.title,
-              amount: expense.amountInCents / 100,
-              date: expense.dueDate.toISOString().slice(0, 10),
-              category: expense.categoryId,
-            });
-          }),
+        combineLatest([
+          this.$categories.pipe(
+            mergeMap((categories) => categories),
+            toArray(),
+          ),
+          this.backendApiService.loadExpense(this.id, this.type),
+        ]).subscribe(([categories, expense]) => {
+          this.form.setValue({
+            title: expense.title,
+            amount: expense.amountInCents / 100,
+            date: expense.dueDate.toISOString().slice(0, 10),
+            category: {
+              id: expense.categoryId,
+              name: categories.find((c) => c.id === expense.categoryId)?.name!,
+            },
+          });
+        }),
       );
     }
   }
@@ -96,7 +118,7 @@ export class EditExpenseComponent implements OnDestroy {
             title: this.form.value.title!,
             amountInCents: this.form.value.amount! * 100,
             dueDate: new Date(this.form.value.date!),
-            categoryId: this.form.value.category!,
+            categoryId: this.form.value.category?.id!,
             budgetId: null, // TODO will be implemented later
             type: this.type,
           })
@@ -117,7 +139,7 @@ export class EditExpenseComponent implements OnDestroy {
             title: this.form.value.title!,
             amountInCents: this.form.value.amount! * 100,
             dueDate: new Date(this.form.value.date!),
-            categoryId: this.form.value.category!,
+            categoryId: this.form.value.category?.id!,
             budgetId: null, // TODO will be implemented later
             type: this.type,
           })

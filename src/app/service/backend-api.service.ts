@@ -18,6 +18,7 @@ import {
   ExpenseUpdate,
 } from '../shared/expense.model';
 import { convertExpense } from './converter/expense-json.converter';
+import { Category } from '../shared/category.model';
 
 @Injectable({
   providedIn: 'root',
@@ -94,5 +95,17 @@ export class BackendApiService {
     return this.httpClient
       .put<ExpenseJson>(`${environment.host}/api/v1/expense/${id}`, expense)
       .pipe(map(convertExpense));
+  }
+
+  public deleteExpense(id: number): Observable<void> {
+    return this.httpClient.delete<void>(
+      `${environment.host}/api/v1/expense/${id}`,
+    );
+  }
+
+  public loadCategories(): Observable<Category[]> {
+    return this.httpClient.get<Category[]>(
+      `${environment.host}/api/v1/category`,
+    );
   }
 }

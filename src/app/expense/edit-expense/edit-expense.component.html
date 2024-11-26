@@ -78,12 +78,22 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input
+                  <select
                     id="category"
                     class="input"
-                    type="text"
                     formControlName="category"
-                  />
+                  >
+                    <option value="" disabled selected>
+                      Wähle eine Kategorie
+                    </option>
+                    @if ($categories | async; as categories) {
+                      @for (category of categories; track category.id) {
+                        <option value="{{ category }}">
+                          {{ category.name }}
+                        </option>
+                      }
+                    }
+                  </select>
                 </div>
                 @if (
                   form.get("category")?.touched && form.get("category")?.invalid
