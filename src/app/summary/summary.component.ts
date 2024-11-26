@@ -14,10 +14,10 @@ import {
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'roba-summary',
-    imports: [AsyncPipe, CurrencyPipe, DatePipe, FaIconComponent, RouterLink],
-    templateUrl: './summary.component.html',
-    styleUrl: './summary.component.scss'
+  selector: 'roba-summary',
+  imports: [AsyncPipe, CurrencyPipe, DatePipe, FaIconComponent, RouterLink],
+  templateUrl: './summary.component.html',
+  styleUrl: './summary.component.scss',
 })
 export class SummaryComponent {
   private backendApiService = inject(BackendApiService);

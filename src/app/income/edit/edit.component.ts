@@ -13,15 +13,15 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'roba-edit',
-    imports: [
-        ReactiveFormsModule,
-        RouterLink,
-        FixedBottomButtonGroupComponent,
-        FaIconComponent,
-    ],
-    templateUrl: './edit.component.html',
-    styleUrl: './edit.component.scss'
+  selector: 'roba-edit',
+  imports: [
+    ReactiveFormsModule,
+    RouterLink,
+    FixedBottomButtonGroupComponent,
+    FaIconComponent,
+  ],
+  templateUrl: './edit.component.html',
+  styleUrl: './edit.component.scss',
 })
 export class EditComponent implements OnDestroy {
   private backendApiService = inject(BackendApiService);

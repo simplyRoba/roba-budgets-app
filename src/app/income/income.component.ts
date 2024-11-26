@@ -9,16 +9,16 @@ import { AsyncPipe, CurrencyPipe } from '@angular/common';
 import { FixedBottomButtonGroupComponent } from '../shared/fixed-bottom-button-group/fixed-bottom-button-group.component';
 
 @Component({
-    selector: 'roba-income',
-    imports: [
-        FaIconComponent,
-        RouterLink,
-        AsyncPipe,
-        CurrencyPipe,
-        FixedBottomButtonGroupComponent,
-    ],
-    templateUrl: './income.component.html',
-    styleUrl: './income.component.scss'
+  selector: 'roba-income',
+  imports: [
+    FaIconComponent,
+    RouterLink,
+    AsyncPipe,
+    CurrencyPipe,
+    FixedBottomButtonGroupComponent,
+  ],
+  templateUrl: './income.component.html',
+  styleUrl: './income.component.scss',
 })
 export class IncomeComponent {
   private backendApiService = inject(BackendApiService);
