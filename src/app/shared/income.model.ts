@@ -8,7 +8,13 @@ export interface Income {
 export interface IncomeCreate {
   title: string;
   amountInCents: number;
-  dueDate: string;
+  dueDate: Date;
+}
+
+export interface IncomeUpdate {
+  title: string;
+  amountInCents: number;
+  dueDate: Date;
 }
 
 export interface IncomeJson {

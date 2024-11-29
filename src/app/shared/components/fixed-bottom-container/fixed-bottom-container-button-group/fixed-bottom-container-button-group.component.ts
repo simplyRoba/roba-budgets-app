@@ -4,12 +4,12 @@ import { RouterLink } from '@angular/router';
 import { faChevronLeft, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'roba-fixed-bottom-button-group',
+  selector: 'roba-fixed-bottom-container-button-group',
   imports: [FaIconComponent, RouterLink],
-  templateUrl: './fixed-bottom-button-group.component.html',
-  styleUrl: './fixed-bottom-button-group.component.scss',
+  templateUrl: './fixed-bottom-container-button-group.component.html',
+  styleUrl: './fixed-bottom-container-button-group.component.scss',
 })
-export class FixedBottomButtonGroupComponent {
+export class FixedBottomContainerButtonGroupComponent {
   abortButtonLink = input('/');
   abortButtonIcon = input(faChevronLeft);
   mainButtonLink = input('/');

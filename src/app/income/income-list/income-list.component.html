@@ -1,0 +1,85 @@
+<div class="income box-list">
+  @if ($incomeList | async; as incomeList) {
+    <roba-scroll-container>
+      <!-- we could make it sticky with position: sticky and top: 0 -->
+      <div class="box is-title content is-medium">
+        <div class="columns is-mobile is-vcentered">
+          <div class="column is-full has-text-weight-semibold">
+            {{ currentMonth | date: "MMMM yyyy" }}
+          </div>
+        </div>
+      </div>
+      @for (income of incomeList; track income.id) {
+        <div
+          routerLink="/income/edit/{{ income.id }}"
+          class="box content is-medium"
+        >
+          <div class="columns is-mobile is-vcentered">
+            <div
+              class="column has-one-line-overflow has-text-left has-text-weight-light"
+            >
+              {{ income.title }}
+            </div>
+            <div class="column is-narrow has-text-right">
+              {{
+                income.amountInCents / 100
+                  | currency: "EUR" : "symbol" : "1.2-2"
+              }}
+            </div>
+          </div>
+        </div>
+      }
+      @if (incomeList.length === 0) {
+        <div class="box content is-medium">
+          <div class="columns is-mobile">
+            <div class="column is-full has-text-centered">
+              <span>Keine Einträge</span>
+            </div>
+          </div>
+        </div>
+      }
+    </roba-scroll-container>
+    <roba-fixed-bottom-container>
+      <roba-fixed-bottom-container-sum-row
+        templateLink="/income/templates"
+        sumString="{{
+          sumIncome(incomeList) / 100 | currency: 'EUR' : 'symbol' : '1.2-2'
+        }}"
+      >
+      </roba-fixed-bottom-container-sum-row>
+      <roba-fixed-bottom-container-button-group
+        [abortButtonLink]="
+          '/summary/' +
+          currentMonth.getFullYear() +
+          '/' +
+          (currentMonth.getMonth() + 1)
+        "
+        mainButtonLink="/income/add"
+      ></roba-fixed-bottom-container-button-group>
+    </roba-fixed-bottom-container>
+  } @else {
+    <roba-scroll-container>
+      <div class="box content is-medium">
+        <div class="columns is-mobile">
+          <div class="column has-text-left has-text-weight-light">
+            <span class="is-skeleton">Skeleton Title</span>
+          </div>
+          <div class="column is-narrow has-text-right">
+            <span class="is-skeleton">Skeleton</span>
+          </div>
+        </div>
+      </div>
+    </roba-scroll-container>
+    <roba-fixed-bottom-container>
+      <roba-fixed-bottom-container-button-group
+        [abortButtonLink]="
+          '/summary/' +
+          currentMonth.getFullYear() +
+          '/' +
+          (currentMonth.getMonth() + 1)
+        "
+        mainButtonLink="/income/add"
+      ></roba-fixed-bottom-container-button-group>
+    </roba-fixed-bottom-container>
+  }
+</div>

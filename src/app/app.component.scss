@@ -1,7 +1,6 @@
-@use "bulma/sass/utilities/mixins";
-
 .background-mesh {
   background-color: var(--bulma-body-background-color);
+  background-attachment: fixed;
   //background-color: var(--bulma-background);
   background-image: radial-gradient(
       at 95% 10%,

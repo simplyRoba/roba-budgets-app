@@ -12,10 +12,20 @@ import {
   faWallet,
 } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { FixedBottomContainerComponent } from '../shared/components/fixed-bottom-container/fixed-bottom-container.component';
+import { ScrollContainerComponent } from '../shared/components/scroll-container/scroll-container.component';
 
 @Component({
   selector: 'roba-summary',
-  imports: [AsyncPipe, CurrencyPipe, DatePipe, FaIconComponent, RouterLink],
+  imports: [
+    AsyncPipe,
+    CurrencyPipe,
+    DatePipe,
+    FaIconComponent,
+    RouterLink,
+    FixedBottomContainerComponent,
+    ScrollContainerComponent,
+  ],
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.scss',
 })

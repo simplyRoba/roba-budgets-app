@@ -1,0 +1,134 @@
+<div class="flex edit">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <roba-scroll-container>
+      <div class="box">
+        <div class="content has-text-left">
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label" for="title">Titel</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control is-expanded">
+                  <input
+                    id="title"
+                    class="input"
+                    type="text"
+                    formControlName="title"
+                    placeholder="z.B. Einkauf"
+                  />
+                </div>
+                @if (form.get("title")?.touched && form.get("title")?.invalid) {
+                  <p class="help is-danger">
+                    Der Titel muss mindestens 3 Zeichen lang sein.
+                  </p>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label" for="amount">Betrag</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control is-expanded">
+                  <input
+                    id="amount"
+                    class="input"
+                    type="number"
+                    formControlName="amount"
+                    placeholder="100"
+                  />
+                </div>
+                @if (
+                  form.get("amount")?.touched && form.get("amount")?.invalid
+                ) {
+                  <p class="help is-danger">
+                    Der Betrag muss mindestens 1 sein.
+                  </p>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label" for="date">Datum</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input
+                    id="date"
+                    class="input"
+                    type="date"
+                    formControlName="date"
+                  />
+                </div>
+                @if (form.get("date")?.touched && form.get("date")?.invalid) {
+                  <p class="help is-danger">Das Datum muss gesetzt sein.</p>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label for="category" class="label">Kategorie</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <select
+                    id="category"
+                    class="input"
+                    formControlName="category"
+                  >
+                    <option value="" disabled selected>
+                      Wähle eine Kategorie
+                    </option>
+                    @if ($categories | async; as categories) {
+                      @for (category of categories; track category.id) {
+                        <option value="{{ category }}">
+                          {{ category.name }}
+                        </option>
+                      }
+                    }
+                  </select>
+                </div>
+                @if (
+                  form.get("category")?.touched && form.get("category")?.invalid
+                ) {
+                  <p class="help is-danger">
+                    Die Kategorie darf nicht leer sein.
+                  </p>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      @if (id) {
+        <button
+          type="button"
+          (click)="delete()"
+          class="button is-danger is-light is-fullwidth"
+        >
+          <span class="icon">
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </span>
+          <span>Löschen</span>
+        </button>
+      }
+    </roba-scroll-container>
+    <roba-fixed-bottom-container>
+      <!-- we navigate back to actual month as this will be correct 95% of the time -->
+      <roba-fixed-bottom-container-button-group
+        [mainButtonDisabled]="!form.untouched && form.invalid"
+        isFormSubmit
+        abortButtonLink="/flex"
+        [mainButtonIcon]="faSave"
+        mainButtonText="Speichern"
+      ></roba-fixed-bottom-container-button-group>
+    </roba-fixed-bottom-container>
+  </form>
+</div>
