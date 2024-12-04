@@ -49,7 +49,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "prettier": "3.4.1",
-    "puppeteer": "^23.9.0",
+    "puppeteer": "^23.10.0",
     "typescript": "~5.5.4",
     "typescript-eslint": "8.16.0"
   }
