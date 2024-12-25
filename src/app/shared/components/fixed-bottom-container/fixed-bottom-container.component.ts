@@ -7,10 +7,6 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'roba-fixed-bottom-container',
   imports: [
-    CurrencyPipe,
-    FaIconComponent,
-    FixedBottomContainerButtonGroupComponent,
-    RouterLink,
     NgClass,
   ],
   templateUrl: './fixed-bottom-container.component.html',

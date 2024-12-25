@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { BackendApiService } from '../../service/backend-api.service';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { Subscription } from 'rxjs';
@@ -18,7 +18,6 @@ import { FixedBottomContainerComponent } from '../../shared/components/fixed-bot
   selector: 'roba-edit-income',
   imports: [
     ReactiveFormsModule,
-    RouterLink,
     FaIconComponent,
     FixedBottomContainerButtonGroupComponent,
     ScrollContainerComponent,

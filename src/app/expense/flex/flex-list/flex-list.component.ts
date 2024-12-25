@@ -15,7 +15,6 @@ import { FixedBottomContainerSumRowComponent } from '../../../shared/components/
   imports: [
     AsyncPipe,
     CurrencyPipe,
-    FaIconComponent,
     RouterLink,
     DatePipe,
     FixedBottomContainerButtonGroupComponent,
