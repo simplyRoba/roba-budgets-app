@@ -1,0 +1,8 @@
+.scroll-container {
+  // -3rem for the padding of the hero-body
+  // 2rem for the padding of the container-fixed-bottom
+  // 1.5rem our own padding
+  padding-bottom: calc(
+    var(--roba-fixed-bottem-height, 3rem) + 2rem - 3rem + 1.5rem
+  );
+}

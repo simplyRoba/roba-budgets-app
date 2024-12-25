@@ -6,24 +6,27 @@ import {
   Validators,
 } from '@angular/forms';
 import { BackendApiService } from '../../service/backend-api.service';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { FixedBottomButtonGroupComponent } from '../../shared/fixed-bottom-button-group/fixed-bottom-button-group.component';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { Subscription } from 'rxjs';
+import { FixedBottomContainerButtonGroupComponent } from '../../shared/components/fixed-bottom-container/fixed-bottom-container-button-group/fixed-bottom-container-button-group.component';
+import { ScrollContainerComponent } from '../../shared/components/scroll-container/scroll-container.component';
+import { FixedBottomContainerComponent } from '../../shared/components/fixed-bottom-container/fixed-bottom-container.component';
 
 @Component({
-  selector: 'roba-edit',
+  selector: 'roba-edit-income',
   imports: [
     ReactiveFormsModule,
-    RouterLink,
-    FixedBottomButtonGroupComponent,
     FaIconComponent,
+    FixedBottomContainerButtonGroupComponent,
+    ScrollContainerComponent,
+    FixedBottomContainerComponent,
   ],
-  templateUrl: './edit.component.html',
-  styleUrl: './edit.component.scss',
+  templateUrl: './edit-income.component.html',
+  styleUrl: './edit-income.component.scss',
 })
-export class EditComponent implements OnDestroy {
+export class EditIncomeComponent implements OnDestroy {
   private backendApiService = inject(BackendApiService);
   private activatedRoute = inject(ActivatedRoute);
   private router = inject(Router);
@@ -33,8 +36,8 @@ export class EditComponent implements OnDestroy {
   subscriptions: Subscription[] = [];
 
   form = new FormGroup({
-    title: new FormControl('', Validators.minLength(3)),
-    amount: new FormControl(0, Validators.min(1)),
+    title: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    amount: new FormControl(0, [Validators.required, Validators.min(1)]),
     date: new FormControl(
       new Date().toISOString().slice(0, 10),
       Validators.required,
@@ -78,12 +81,14 @@ export class EditComponent implements OnDestroy {
           .updateIncome(this.id, {
             title: this.form.value.title!,
             amountInCents: this.form.value.amount! * 100,
-            dueDate: this.form.value.date!,
+            dueDate: new Date(this.form.value.date!),
           })
           .subscribe((income) =>
             this.router
               .navigate([
-                `/income/${income.dueDate.getFullYear()}/${income.dueDate.getMonth() + 1}`,
+                'income',
+                income.dueDate.getFullYear(),
+                income.dueDate.getMonth() + 1,
               ])
               .then(),
           ),
@@ -94,12 +99,14 @@ export class EditComponent implements OnDestroy {
           .saveIncome({
             title: this.form.value.title!,
             amountInCents: this.form.value.amount! * 100,
-            dueDate: this.form.value.date!,
+            dueDate: new Date(this.form.value.date!),
           })
           .subscribe((income) =>
             this.router
               .navigate([
-                `/income/${income.dueDate.getFullYear()}/${income.dueDate.getMonth() + 1}`,
+                'income',
+                income.dueDate.getFullYear(),
+                income.dueDate.getMonth() + 1,
               ])
               .then(),
           ),

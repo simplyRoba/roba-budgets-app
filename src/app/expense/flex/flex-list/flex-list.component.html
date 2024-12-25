@@ -1,0 +1,88 @@
+<div class="flex box-list">
+  @if ($flexExpenseList | async; as flexExpenseList) {
+    <roba-scroll-container>
+      <!-- we could make it sticky with position: sticky and top: 0 -->
+      <div class="box is-title content is-medium">
+        <div class="columns is-mobile is-vcentered">
+          <div class="column is-full has-text-weight-semibold">
+            {{ currentMonth | date: "MMMM yyyy" }}
+          </div>
+        </div>
+      </div>
+      @for (expense of flexExpenseList; track expense.id) {
+        <div
+          routerLink="/flex/edit/{{ expense.id }}"
+          class="box content is-medium"
+        >
+          <div class="columns is-mobile is-vcentered">
+            <div class="column has-text-left has-text-weight-light">
+              <p class="expense-category has-one-line-overflow">
+                {{ expense.categoryId }}
+              </p>
+              <p class="expense-title has-one-line-overflow">
+                {{ expense.title }}
+              </p>
+            </div>
+            <div class="column is-narrow has-text-right">
+              {{
+                expense.amountInCents / 100
+                  | currency: "EUR" : "symbol" : "1.2-2"
+              }}
+            </div>
+          </div>
+        </div>
+      }
+      @if (flexExpenseList.length === 0) {
+        <div class="box content is-medium">
+          <div class="columns is-mobile">
+            <div class="column is-full has-text-centered">
+              <span>Keine Einträge</span>
+            </div>
+          </div>
+        </div>
+      }
+    </roba-scroll-container>
+    <roba-fixed-bottom-container>
+      <roba-fixed-bottom-container-sum-row
+        sumString="{{
+          sumExpense(flexExpenseList) / 100
+            | currency: 'EUR' : 'symbol' : '1.2-2'
+        }}"
+      >
+      </roba-fixed-bottom-container-sum-row>
+      <roba-fixed-bottom-container-button-group
+        [abortButtonLink]="
+          '/summary/' +
+          currentMonth.getFullYear() +
+          '/' +
+          (currentMonth.getMonth() + 1)
+        "
+        mainButtonLink="/flex/add"
+      ></roba-fixed-bottom-container-button-group>
+    </roba-fixed-bottom-container>
+  } @else {
+    <roba-scroll-container>
+      <div class="box content is-medium">
+        <div class="columns is-mobile is-vcentered">
+          <div class="column has-text-left has-text-weight-light">
+            <span class="is-skeleton">Skeleton Title</span>
+          </div>
+          <div class="column is-narrow has-text-right">
+            <span class="is-skeleton">Skeleton</span>
+          </div>
+        </div>
+      </div>
+    </roba-scroll-container>
+    <roba-fixed-bottom-container>
+      <roba-fixed-bottom-container-button-group
+        [abortButtonLink]="
+          '/summary/' +
+          currentMonth.getFullYear() +
+          '/' +
+          (currentMonth.getMonth() + 1)
+        "
+        mainButtonLink="/flex/add"
+      ></roba-fixed-bottom-container-button-group>
+    </roba-fixed-bottom-container>
+  }
+</div>
